@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D14FD192304E900258673 /* FTUITreeItem.m */; };
+		BF7D150919231F7700258673 /* Test.opml in Resources */ = {isa = PBXBuildFile; fileRef = BF7D150819231F7700258673 /* Test.opml */; };
+		BF7D150C19231F8C00258673 /* FTOPMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D150B19231F8C00258673 /* FTOPMLReader.m */; };
+		BF7D150D1923228600258673 /* Test.opml in Resources */ = {isa = PBXBuildFile; fileRef = BF7D150819231F7700258673 /* Test.opml */; };
+		BF7D1510192322DD00258673 /* FTOPMLItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D150F192322DD00258673 /* FTOPMLItem.m */; };
+		BF7D151519232DF200258673 /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = BF7D151319232DF200258673 /* stylesheet.css */; };
+		BF7D151619232DF200258673 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = BF7D151419232DF200258673 /* template.html */; };
+		BF89C51A1921B044001709E4 /* FTUIOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BF89C5191921B044001709E4 /* FTUIOutlineViewDataSource.m */; };
+		BF89C51D1921B09C001709E4 /* FTUIOutlineViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF89C51C1921B09C001709E4 /* FTUIOutlineViewItem.m */; };
+		BFDB4A7D191F184900C46EAF /* FTUrlLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A7C191F184900C46EAF /* FTUrlLoader.m */; };
+		BFDB4A81191F208700C46EAF /* FTRSSChannelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A80191F208700C46EAF /* FTRSSChannelAttributes.m */; };
+		BFDB4A84191F285800C46EAF /* FTRSSItemAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A83191F285800C46EAF /* FTRSSItemAttributes.m */; };
+		BFDB4A8C191F308400C46EAF /* FTUIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A8B191F308400C46EAF /* FTUIMainViewController.m */; };
+		BFDB4A94191F49BC00C46EAF /* FTUIViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */; };
+		BFDB4A97191F49D800C46EAF /* FTUIChannelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A96191F49D800C46EAF /* FTUIChannelDelegate.m */; };
+		BFF5D5EE191C70CC00301531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5D5ED191C70CC00301531 /* Cocoa.framework */; };
+		BFF5D5F8191C70CC00301531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D5F6191C70CC00301531 /* InfoPlist.strings */; };
+		BFF5D5FA191C70CC00301531 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D5F9191C70CC00301531 /* main.m */; };
+		BFF5D5FE191C70CC00301531 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D5FC191C70CC00301531 /* Credits.rtf */; };
+		BFF5D601191C70CC00301531 /* FTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D600191C70CC00301531 /* FTAppDelegate.m */; };
+		BFF5D604191C70CC00301531 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D602191C70CC00301531 /* MainMenu.xib */; };
+		BFF5D606191C70CC00301531 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D605191C70CC00301531 /* Images.xcassets */; };
+		BFF5D60D191C70CC00301531 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5D60C191C70CC00301531 /* XCTest.framework */; };
+		BFF5D60E191C70CC00301531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5D5ED191C70CC00301531 /* Cocoa.framework */; };
+		BFF5D616191C70CC00301531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D614191C70CC00301531 /* InfoPlist.strings */; };
+		BFF5D618191C70CD00301531 /* FreshViennaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D617191C70CD00301531 /* FreshViennaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BFF5D60F191C70CC00301531 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFF5D5E2191C70CC00301531 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFF5D5E9191C70CC00301531;
+			remoteInfo = FreshVienna;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF7D14FC192304E800258673 /* FTUITreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUITreeItem.h; sourceTree = "<group>"; };
+		BF7D14FD192304E900258673 /* FTUITreeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUITreeItem.m; sourceTree = "<group>"; };
+		BF7D150819231F7700258673 /* Test.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Test.opml; sourceTree = "<group>"; };
+		BF7D150A19231F8C00258673 /* FTOPMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTOPMLReader.h; sourceTree = "<group>"; };
+		BF7D150B19231F8C00258673 /* FTOPMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTOPMLReader.m; sourceTree = "<group>"; };
+		BF7D150E192322DD00258673 /* FTOPMLItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTOPMLItem.h; sourceTree = "<group>"; };
+		BF7D150F192322DD00258673 /* FTOPMLItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTOPMLItem.m; sourceTree = "<group>"; };
+		BF7D151319232DF200258673 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
+		BF7D151419232DF200258673 /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
+		BF89C5181921B044001709E4 /* FTUIOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIOutlineViewDataSource.h; sourceTree = "<group>"; };
+		BF89C5191921B044001709E4 /* FTUIOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIOutlineViewDataSource.m; sourceTree = "<group>"; };
+		BF89C51B1921B09C001709E4 /* FTUIOutlineViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIOutlineViewItem.h; sourceTree = "<group>"; };
+		BF89C51C1921B09C001709E4 /* FTUIOutlineViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIOutlineViewItem.m; sourceTree = "<group>"; };
+		BFDB4A7B191F184900C46EAF /* FTUrlLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUrlLoader.h; sourceTree = "<group>"; };
+		BFDB4A7C191F184900C46EAF /* FTUrlLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUrlLoader.m; sourceTree = "<group>"; };
+		BFDB4A7F191F208700C46EAF /* FTRSSChannelAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRSSChannelAttributes.h; sourceTree = "<group>"; };
+		BFDB4A80191F208700C46EAF /* FTRSSChannelAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRSSChannelAttributes.m; sourceTree = "<group>"; };
+		BFDB4A82191F285800C46EAF /* FTRSSItemAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRSSItemAttributes.h; sourceTree = "<group>"; };
+		BFDB4A83191F285800C46EAF /* FTRSSItemAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRSSItemAttributes.m; sourceTree = "<group>"; };
+		BFDB4A8A191F308400C46EAF /* FTUIMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIMainViewController.h; sourceTree = "<group>"; };
+		BFDB4A8B191F308400C46EAF /* FTUIMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIMainViewController.m; sourceTree = "<group>"; };
+		BFDB4A92191F49BC00C46EAF /* FTUIViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIViewDelegate.h; sourceTree = "<group>"; };
+		BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIViewDelegate.m; sourceTree = "<group>"; };
+		BFDB4A95191F49D800C46EAF /* FTUIChannelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIChannelDelegate.h; sourceTree = "<group>"; };
+		BFDB4A96191F49D800C46EAF /* FTUIChannelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIChannelDelegate.m; sourceTree = "<group>"; };
+		BFF5D5EA191C70CC00301531 /* FreshVienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshVienna.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFF5D5ED191C70CC00301531 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BFF5D5F0191C70CC00301531 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BFF5D5F1191C70CC00301531 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BFF5D5F2191C70CC00301531 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BFF5D5F5191C70CC00301531 /* FreshVienna-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FreshVienna-Info.plist"; sourceTree = "<group>"; };
+		BFF5D5F7191C70CC00301531 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFF5D5F9191C70CC00301531 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BFF5D5FB191C70CC00301531 /* FreshVienna-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FreshVienna-Prefix.pch"; sourceTree = "<group>"; };
+		BFF5D5FD191C70CC00301531 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		BFF5D5FF191C70CC00301531 /* FTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTAppDelegate.h; sourceTree = "<group>"; };
+		BFF5D600191C70CC00301531 /* FTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTAppDelegate.m; sourceTree = "<group>"; };
+		BFF5D603191C70CC00301531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BFF5D605191C70CC00301531 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BFF5D60B191C70CC00301531 /* FreshViennaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreshViennaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFF5D60C191C70CC00301531 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BFF5D613191C70CC00301531 /* FreshViennaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FreshViennaTests-Info.plist"; sourceTree = "<group>"; };
+		BFF5D615191C70CC00301531 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFF5D617191C70CD00301531 /* FreshViennaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreshViennaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFF5D5E7191C70CC00301531 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF5D5EE191C70CC00301531 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFF5D608191C70CC00301531 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF5D60E191C70CC00301531 /* Cocoa.framework in Frameworks */,
+				BFF5D60D191C70CC00301531 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF7D1504192316AE00258673 /* OutlineView */ = {
+			isa = PBXGroup;
+			children = (
+				BF89C5181921B044001709E4 /* FTUIOutlineViewDataSource.h */,
+				BF89C5191921B044001709E4 /* FTUIOutlineViewDataSource.m */,
+				BF89C51B1921B09C001709E4 /* FTUIOutlineViewItem.h */,
+				BF7D14FC192304E800258673 /* FTUITreeItem.h */,
+				BF7D14FD192304E900258673 /* FTUITreeItem.m */,
+				BF89C51C1921B09C001709E4 /* FTUIOutlineViewItem.m */,
+			);
+			name = OutlineView;
+			sourceTree = "<group>";
+		};
+		BF7D150719231F5A00258673 /* OPML */ = {
+			isa = PBXGroup;
+			children = (
+				BF7D150A19231F8C00258673 /* FTOPMLReader.h */,
+				BF7D150B19231F8C00258673 /* FTOPMLReader.m */,
+				BF7D150E192322DD00258673 /* FTOPMLItem.h */,
+				BF7D150F192322DD00258673 /* FTOPMLItem.m */,
+			);
+			name = OPML;
+			sourceTree = "<group>";
+		};
+		BFDB4A7E191F206100C46EAF /* RSSObjects */ = {
+			isa = PBXGroup;
+			children = (
+				BFDB4A7F191F208700C46EAF /* FTRSSChannelAttributes.h */,
+				BFDB4A80191F208700C46EAF /* FTRSSChannelAttributes.m */,
+				BFDB4A82191F285800C46EAF /* FTRSSItemAttributes.h */,
+				BFDB4A83191F285800C46EAF /* FTRSSItemAttributes.m */,
+			);
+			name = RSSObjects;
+			sourceTree = "<group>";
+		};
+		BFDB4A85191F2F2200C46EAF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BFDB4A7E191F206100C46EAF /* RSSObjects */,
+				BF7D150719231F5A00258673 /* OPML */,
+				BFDB4A7B191F184900C46EAF /* FTUrlLoader.h */,
+				BFDB4A7C191F184900C46EAF /* FTUrlLoader.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		BFDB4A86191F2F3300C46EAF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BFDB4A8A191F308400C46EAF /* FTUIMainViewController.h */,
+				BFDB4A8B191F308400C46EAF /* FTUIMainViewController.m */,
+				BF7D1504192316AE00258673 /* OutlineView */,
+				BFDB4A92191F49BC00C46EAF /* FTUIViewDelegate.h */,
+				BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */,
+				BFDB4A95191F49D800C46EAF /* FTUIChannelDelegate.h */,
+				BFDB4A96191F49D800C46EAF /* FTUIChannelDelegate.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		BFF5D5E1191C70CC00301531 = {
+			isa = PBXGroup;
+			children = (
+				BFF5D5F3191C70CC00301531 /* FreshVienna */,
+				BFF5D611191C70CC00301531 /* FreshViennaTests */,
+				BFF5D5EC191C70CC00301531 /* Frameworks */,
+				BFF5D5EB191C70CC00301531 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BFF5D5EB191C70CC00301531 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFF5D5EA191C70CC00301531 /* FreshVienna.app */,
+				BFF5D60B191C70CC00301531 /* FreshViennaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFF5D5EC191C70CC00301531 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFF5D5ED191C70CC00301531 /* Cocoa.framework */,
+				BFF5D60C191C70CC00301531 /* XCTest.framework */,
+				BFF5D5EF191C70CC00301531 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFF5D5EF191C70CC00301531 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFF5D5F0191C70CC00301531 /* AppKit.framework */,
+				BFF5D5F1191C70CC00301531 /* CoreData.framework */,
+				BFF5D5F2191C70CC00301531 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		BFF5D5F3191C70CC00301531 /* FreshVienna */ = {
+			isa = PBXGroup;
+			children = (
+				BFDB4A86191F2F3300C46EAF /* UI */,
+				BFF5D5FF191C70CC00301531 /* FTAppDelegate.h */,
+				BFF5D600191C70CC00301531 /* FTAppDelegate.m */,
+				BFDB4A85191F2F2200C46EAF /* Core */,
+				BFF5D602191C70CC00301531 /* MainMenu.xib */,
+				BFF5D605191C70CC00301531 /* Images.xcassets */,
+				BFF5D5F4191C70CC00301531 /* Supporting Files */,
+			);
+			path = FreshVienna;
+			sourceTree = "<group>";
+		};
+		BFF5D5F4191C70CC00301531 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF7D151319232DF200258673 /* stylesheet.css */,
+				BF7D151419232DF200258673 /* template.html */,
+				BFF5D5F5191C70CC00301531 /* FreshVienna-Info.plist */,
+				BFF5D5F6191C70CC00301531 /* InfoPlist.strings */,
+				BFF5D5F9191C70CC00301531 /* main.m */,
+				BFF5D5FB191C70CC00301531 /* FreshVienna-Prefix.pch */,
+				BFF5D5FC191C70CC00301531 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFF5D611191C70CC00301531 /* FreshViennaTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFF5D617191C70CD00301531 /* FreshViennaTests.m */,
+				BFF5D612191C70CC00301531 /* Supporting Files */,
+			);
+			path = FreshViennaTests;
+			sourceTree = "<group>";
+		};
+		BFF5D612191C70CC00301531 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF7D150819231F7700258673 /* Test.opml */,
+				BFF5D613191C70CC00301531 /* FreshViennaTests-Info.plist */,
+				BFF5D614191C70CC00301531 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFF5D5E9191C70CC00301531 /* FreshVienna */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFF5D61B191C70CD00301531 /* Build configuration list for PBXNativeTarget "FreshVienna" */;
+			buildPhases = (
+				BFF5D5E6191C70CC00301531 /* Sources */,
+				BFF5D5E7191C70CC00301531 /* Frameworks */,
+				BFF5D5E8191C70CC00301531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FreshVienna;
+			productName = FreshVienna;
+			productReference = BFF5D5EA191C70CC00301531 /* FreshVienna.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BFF5D60A191C70CC00301531 /* FreshViennaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFF5D61E191C70CD00301531 /* Build configuration list for PBXNativeTarget "FreshViennaTests" */;
+			buildPhases = (
+				BFF5D607191C70CC00301531 /* Sources */,
+				BFF5D608191C70CC00301531 /* Frameworks */,
+				BFF5D609191C70CC00301531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFF5D610191C70CC00301531 /* PBXTargetDependency */,
+			);
+			name = FreshViennaTests;
+			productName = FreshViennaTests;
+			productReference = BFF5D60B191C70CC00301531 /* FreshViennaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFF5D5E2191C70CC00301531 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FT;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Thibaut;
+				TargetAttributes = {
+					BFF5D60A191C70CC00301531 = {
+						TestTargetID = BFF5D5E9191C70CC00301531;
+					};
+				};
+			};
+			buildConfigurationList = BFF5D5E5191C70CC00301531 /* Build configuration list for PBXProject "FreshVienna" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFF5D5E1191C70CC00301531;
+			productRefGroup = BFF5D5EB191C70CC00301531 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFF5D5E9191C70CC00301531 /* FreshVienna */,
+				BFF5D60A191C70CC00301531 /* FreshViennaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFF5D5E8191C70CC00301531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF7D150D1923228600258673 /* Test.opml in Resources */,
+				BFF5D5F8191C70CC00301531 /* InfoPlist.strings in Resources */,
+				BF7D151619232DF200258673 /* template.html in Resources */,
+				BFF5D606191C70CC00301531 /* Images.xcassets in Resources */,
+				BFF5D5FE191C70CC00301531 /* Credits.rtf in Resources */,
+				BFF5D604191C70CC00301531 /* MainMenu.xib in Resources */,
+				BF7D151519232DF200258673 /* stylesheet.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFF5D609191C70CC00301531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF5D616191C70CC00301531 /* InfoPlist.strings in Resources */,
+				BF7D150919231F7700258673 /* Test.opml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFF5D5E6191C70CC00301531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF7D1510192322DD00258673 /* FTOPMLItem.m in Sources */,
+				BF89C51D1921B09C001709E4 /* FTUIOutlineViewItem.m in Sources */,
+				BFDB4A84191F285800C46EAF /* FTRSSItemAttributes.m in Sources */,
+				BFDB4A7D191F184900C46EAF /* FTUrlLoader.m in Sources */,
+				BFF5D601191C70CC00301531 /* FTAppDelegate.m in Sources */,
+				BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */,
+				BFDB4A8C191F308400C46EAF /* FTUIMainViewController.m in Sources */,
+				BFDB4A97191F49D800C46EAF /* FTUIChannelDelegate.m in Sources */,
+				BFDB4A81191F208700C46EAF /* FTRSSChannelAttributes.m in Sources */,
+				BFDB4A94191F49BC00C46EAF /* FTUIViewDelegate.m in Sources */,
+				BF89C51A1921B044001709E4 /* FTUIOutlineViewDataSource.m in Sources */,
+				BF7D150C19231F8C00258673 /* FTOPMLReader.m in Sources */,
+				BFF5D5FA191C70CC00301531 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFF5D607191C70CC00301531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF5D618191C70CD00301531 /* FreshViennaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFF5D610191C70CC00301531 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFF5D5E9191C70CC00301531 /* FreshVienna */;
+			targetProxy = BFF5D60F191C70CC00301531 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BFF5D5F6191C70CC00301531 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF5D5F7191C70CC00301531 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BFF5D5FC191C70CC00301531 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF5D5FD191C70CC00301531 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		BFF5D602191C70CC00301531 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF5D603191C70CC00301531 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		BFF5D614191C70CC00301531 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF5D615191C70CC00301531 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFF5D619191C70CD00301531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BFF5D61A191C70CD00301531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BFF5D61C191C70CD00301531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FreshVienna/FreshVienna-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "FreshVienna/FreshVienna-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BFF5D61D191C70CD00301531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FreshVienna/FreshVienna-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "FreshVienna/FreshVienna-Info.plist";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BFF5D61F191C70CD00301531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FreshVienna.app/Contents/MacOS/FreshVienna";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FreshVienna/FreshVienna-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FreshViennaTests/FreshViennaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BFF5D620191C70CD00301531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FreshVienna.app/Contents/MacOS/FreshVienna";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FreshVienna/FreshVienna-Prefix.pch";
+				INFOPLIST_FILE = "FreshViennaTests/FreshViennaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFF5D5E5191C70CC00301531 /* Build configuration list for PBXProject "FreshVienna" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF5D619191C70CD00301531 /* Debug */,
+				BFF5D61A191C70CD00301531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFF5D61B191C70CD00301531 /* Build configuration list for PBXNativeTarget "FreshVienna" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF5D61C191C70CD00301531 /* Debug */,
+				BFF5D61D191C70CD00301531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFF5D61E191C70CD00301531 /* Build configuration list for PBXNativeTarget "FreshViennaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF5D61F191C70CD00301531 /* Debug */,
+				BFF5D620191C70CD00301531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFF5D5E2191C70CC00301531 /* Project object */;
+}

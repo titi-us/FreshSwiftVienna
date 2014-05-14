@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+<head>
+<title>Vienna Subscriptions</title>
+<dateCreated>2014-05-13 21:02:26 -0400</dateCreated>
+</head>
+<body>
+<outline htmlUrl="http://www.altdevblogaday.com" xmlUrl="http://www.altdevblogaday.com/feed/" type="rss" description="Each day a little more #gamedev love" text="#AltDevBlogADay"/>
+<outline htmlUrl="http://www.101greatgoals.com" xmlUrl="http://www.101greatgoals.com/feed/" type="rss" description="No matter where you are in the world, this site allows you to keep up to date with all the latest goals from around the world. This is your one-stop-shop to get your footy fix â€“ on your terms, at your convenience and with your own input. Feel free to leave comments and links to other goals, any goal is welcome on this website. Sit back and enjoy." text="101 Goals"/>
+<outline text="Actualités">
+<outline htmlUrl="http://www.courrierinternational.com" xmlUrl="http://www.courrierinternational.com/rss/all/rss.xml" type="rss" description="Derniers articles parus sur Courrier international" text="Courrier international - L&apos;anticipation au quotidien"/>
+<outline htmlUrl="http://www.lesechos.fr/economie-politique/politique/" xmlUrl="http://syndication.lesechos.fr/rss/rss_politique.xml" type="rss" description="" text="Economie et Politique - Les Echos"/>
+<outline htmlUrl="http://www.lefigaro.fr/" xmlUrl="http://rss.lefigaro.fr/lefigaro/laune" type="rss" description="A la Une : Retrouvez toute l&apos;actualité en France, à l&apos;international, l&apos;actualité économique et politique avec Le Figaro" text="Le Figaro : A la Une"/>
+<outline htmlUrl="http://www.lemonde.fr/rss/une.xml" xmlUrl="http://www.lemonde.fr/rss/une.xml" type="rss" description="Le Monde.fr - 1er site d&apos;information. Les articles du journal et toute l&apos;actualité en continu : International, France, Société, Economie, Culture, Environnement, Blogs ..." text="Le Monde.fr : à la Une"/>
+<outline htmlUrl="http://www.lesechos.fr/economie-politique/france/" xmlUrl="http://rss.feedsportal.com/c/499/f/413824/index.rss" type="rss" description="Toute l&apos;info économique, financière et boursière sur la France" text="Les Echos - actualité france"/>
+<outline htmlUrl="http://www.lesechos.fr/economie-politique/monde/" xmlUrl="http://rss.feedsportal.com/c/499/f/413829/index.rss" type="rss" description="Toute l&apos;info économique, financière et boursière dans le monde" text="Les Echos - actualité internationale"/>
+<outline htmlUrl="http://syndication.lesechos.fr" xmlUrl="http://syndication.lesechos.fr/rss/rss_tech_medias.xml" type="rss" description="Articles du quotidien Les Echos et du site lesechos.fr sur la high-tech et les médias, la communicat" text="Les Echos - HighTech &amp; Médias"/>
+</outline>
+<outline htmlUrl="http://www.commandlinefu.com/commands/browse/rss" xmlUrl="http://feeds.feedburner.com/Command-line-fu" type="rss" description="A repository for the most elegant and useful UNIX commands.  Great commands can be shared, discussed and voted on to provide a comprehensive resource for working from the command-line" text="All commands"/>
+<outline htmlUrl="http://www.animenewsnetwork.com/" xmlUrl="http://www.animenewsnetwork.com/main-feed/rss.xml" type="rss" description="ANN RSS feed" text="Anime News Network"/>
+<outline htmlUrl="http://antwrp.gsfc.nasa.gov/" xmlUrl="http://apod.nasa.gov/apod.rss" type="rss" description="Astronomy Picture of the Day" text="APOD"/>
+<outline htmlUrl="http://www.assemblee-nationale.fr/" xmlUrl="http://www.assemblee-nationale.fr/rss/rss.xml" type="rss" description="Le site de l&apos;Assemblée nationale" text="Assemblée nationale"/>
+<outline htmlUrl="http://www.buzzfeed.com" xmlUrl="http://www.buzzfeed.com/index.xml" type="rss" description="BuzzFeed, Find Your New Favorite Thing" text="BuzzFeed"/>
+<outline text="Comics">
+<outline htmlUrl="http://abstrusegoose.com" xmlUrl="http://abstrusegoose.com/feed.xml" type="rss" description="awesome webcomic" text="Abstruse Goose"/>
+<outline htmlUrl="http://chaoslife.findchaos.com" xmlUrl="http://chaoslife.findchaos.com/feed" type="rss" description="" text="ChaosLife"/>
+<outline htmlUrl="http://dilbert.com/" xmlUrl="http://feed.dilbert.com/dilbert/daily_strip?format=xml" type="rss" description="The Official Dilbert Daily Comic Strip RSS Feed" text="Dilbert"/>
+<outline htmlUrl="http://thedoghousediaries.com" xmlUrl="http://feeds.feedburner.com/thedoghousediaries/feed?format=xml" type="rss" description="" text="DOGHOUSE"/>
+<outline htmlUrl="http://www.pidjin.net" xmlUrl="http://feeds.feedburner.com/Pidjin" type="rss" description="World&apos;s funniest webcomic by Eugen Erhan &amp; Tudor Muscalu" text="Fredo and Pidjin. The Webcomic. » Fredo &amp; Pid’Jin"/>
+<outline htmlUrl="http://www.gocomics.com/garfield" xmlUrl="http://feeds.feedburner.com/uclick/garfield?format=xml" type="rss" description="What a cat! A cat for all seasons. Sassy. Opinionated. This lasagna loving, mailman chasing, sarcastic cat is a classic that readers love. Garfield, Odie and Jon will leave you wanting a daily dose of this beloved bunch! Garfield&amp;rsquo;s crafty talent with words and sneaky preference for practical jokes often leave his owner, Jon - and us - speechless, and always wanting more.
+
+&lt;p&gt;&lt;a href=&quot;http://www.garfield.com/&quot;&gt;Visit Garfield.com&lt;/a&gt;&lt;/p&gt;" text="Garfield"/>
+<outline htmlUrl="http://geek-and-poke.com/" xmlUrl="http://feeds.feedburner.com/GeekAndPoke" type="rss" description="" text="Geek&amp;Poke"/>
+<outline htmlUrl="http://hyperboleandahalf.blogspot.com/" xmlUrl="http://feeds.feedburner.com/Hyperbole-and-a-half" type="rss" description="" text="Hyperbole and a Half"/>
+<outline htmlUrl="http://www.smbc-comics.com" xmlUrl="http://feeds.feedburner.com/smbc-comics/PvLb" type="rss" description="The Saturday Morning Breakfast Cereal Blog" text="Saturday Morning Breakfast Cereal (updated daily)"/>
+<outline htmlUrl="http://pbfcomics.com" xmlUrl="http://pbfcomics.com/feed/feed.xml" type="rss" description="" text="The Perry Bible Fellowship"/>
+<outline htmlUrl="http://twitterthecomic.tumblr.com/" xmlUrl="http://twitterthecomic.tumblr.com/rss" type="rss" description="Comics based on the greatest tweets of our generation. 
+Organized by @VectorBelly." text="Twitter: The Comic"/>
+<outline htmlUrl="http://xkcd.com/" xmlUrl="http://xkcd.com/rss.xml" type="rss" description="xkcd.com: A webcomic of romance and math humor." text="XKCD"/>
+</outline>
+<outline htmlUrl="http://www.css3.info" xmlUrl="http://feeds2.feedburner.com/css3" type="rss" description="All you ever needed to know about CSS3" text="CSS"/>
+<outline htmlUrl="http://news.css3.info" xmlUrl="http://feeds.feedburner.com/css3-news" type="rss" description="CSS3 news and resources from around the web" text="CSS  news"/>
+<outline htmlUrl="http://scarbsf1.com/blog1" xmlUrl="http://scarbsf1.com/blog1/feed/" type="rss" description="Everything Technical in F1" text="F1"/>
+<outline htmlUrl="https://developers.facebook.com/blog/" xmlUrl="http://developers.facebook.com/blog/feed" type="rss" description="The latest news and announcements from Facebook Platform including APIs, SDKs, social plugins and Parse." text="Facebook Developer Blog"/>
+<outline text="Games">
+<outline htmlUrl="http://www.jeuxactu.com" xmlUrl="http://www.jeuxactu.com/rss/ja.rss" type="rss" description="L&apos;actualité quotidienne des jeux vidéo" text="Actualite JeuxActu.com"/>
+<outline htmlUrl="http://www.funtouch.net/" xmlUrl="http://feeds.feedburner.com/Funtouch" type="rss" description="Toutes les actus des jeux vidéo sur iPad, iPod touch et iPhone ! Actus, tests, forums et podcasts pour faire plaisir à son iPhone et son iPod touch." text="Actualité des jeux iPhone, iPad et iPod touch - FunTouch"/>
+<outline htmlUrl="http://www.factornews.com" xmlUrl="http://www.factornews.com/rss.php" type="rss" description="Les dernières nouvelles de Factornews" text="Factornews"/>
+<outline htmlUrl="http://www.gamekult.com/actu/jeux-video.html" xmlUrl="http://www.gamekult.com/feeds/actu.html" type="rss" description="Dernieres actualites de jeux video par la rédaction de Gamekult.com" text="Gamekult.com : Dernieres news de jeux video"/>
+<outline htmlUrl="http://www.jeuxvideo.com/" xmlUrl="http://www.jeuxvideo.com/rss/rss.xml" type="rss" description="La Référence de Jeux Vidéo PC et Consoles -" text="JeuxVideo.com"/>
+</outline>
+<outline text="Games US">
+<outline htmlUrl="http://www.gamasutra.com/features" xmlUrl="http://feeds.feedburner.com/GamasutraFeatureArticles/" type="rss" description="Gamasutra Feature Articles" text="Gamasutra Feature Articles"/>
+<outline htmlUrl="http://auth.gamespot.com/" xmlUrl="http://www.gamespot.com/feeds/mashup/?type=3" type="rss" description="Gamespot&apos;s Everything Feed! News, Reviews, Videos. Exploding with content? You bet." text="GameSpot&apos;s News"/>
+<outline htmlUrl="http://kotaku.com" xmlUrl="http://feeds.gawker.com/kotaku/full" type="rss" description="The Gamer&apos;s Guide" text="Kotaku"/>
+</outline>
+<outline htmlUrl="https://news.ycombinator.com/" xmlUrl="https://news.ycombinator.com/rss" type="rss" description="Links for the intellectually curious, ranked by readers." text="Hacker News"/>
+<outline htmlUrl="http://highscalability.com/blog/" xmlUrl="http://feeds.feedburner.com/HighScalability" type="rss" description="" text="High Scalability"/>
+<outline htmlUrl="http://www.insidefacebook.com" xmlUrl="http://www.insidefacebook.com/feed/" type="rss" description="Tracking Facebook and the Facebook Platform for Developers and Marketers" text="Inside Facebook"/>
+<outline text="Mac">
+<outline htmlUrl="http://www.mac4ever.com/actu" xmlUrl="http://www.mac4ever.com/rss/actu" type="rss" description="Le site Mac... alternatif ! - Toute l&apos;actualité Mac, iPod et iPhone" text="Mac4Ever.com"/>
+<outline htmlUrl="http://www.macbidouille.com" xmlUrl="http://feeds.macbidouille.com/macbidouille/" type="rss" description="Bidouille Hardware sur Mac" text="MacBidouille.com"/>
+<outline htmlUrl="http://www.macg.co/news/feed" xmlUrl="http://rss.macg.co" type="rss" description="MacGeneration : toute l&apos;actu !" text="MacGeneration"/>
+<outline htmlUrl="http://www.macplus.net/magplus/" xmlUrl="http://feeds.macplus.net/macplus/depeches" type="rss" description="Macplus" text="Macplus : les dépêches"/>
+</outline>
+<outline htmlUrl="http://www.nba.com/news" xmlUrl="http://www.nba.com/rss/nba_rss.xml" type="rss" description="NBA.com delivers the latest news, video, and scores from around the NBA league." text="NBA.com: News"/>
+<outline text="Newspaper">
+<outline htmlUrl="http://www.mondaynote.com" xmlUrl="http://www.mondaynote.com/feed/" type="rss" description="MEDIA, TECH, BUSINESS MODELS" text="Monday Note"/>
+<outline htmlUrl="http://www.nytimes.com/pages/global/index.html?partner=rss&amp;emc=rss" xmlUrl="http://rss.nytimes.com/services/xml/rss/nyt/GlobalHome.xml" type="rss" description="GlobalHome" text="NYT"/>
+<outline htmlUrl="http://www.reuters.com" xmlUrl="http://feeds.reuters.com/reuters/worldNews" type="rss" description="Reuters.com is your source for breaking news, business, financial and investing news, including personal finance and stocks. Reuters is the leading global provider of news, financial information and technology solutions to the world&apos;s media, financial institutions, businesses and individuals." text="Reuters: World News"/>
+</outline>
+<outline htmlUrl="http://nshipster.com" xmlUrl="http://nshipster.com/feed.xml" type="rss" description="NSHipster is a journal of the overlooked bits in Objective-C and Cocoa. Updated weekly." text="NSHipster"/>
+<outline htmlUrl="http://www.nyaa.se/" xmlUrl="http://www.nyaa.eu/?page=rss&amp;cats=1_37&amp;filter=2" type="rss" description="" text="NyaaTorrents"/>
+<outline htmlUrl="http://qualitycoding.org" xmlUrl="http://feeds.feedburner.com/qualitycoding?format=xml" type="rss" description="Tools, tips &amp; techniques for building quality in to iOS development." text="Quality Coding"/>
+<outline htmlUrl="http://www.designtaxi.com/news.rss" xmlUrl="http://designtaxi.com/news.rss" type="rss" description="The Global Creative Network" text="TAXI Daily News"/>
+<outline text="Tech">
+<outline htmlUrl="http://daringfireball.net/" xmlUrl="http://daringfireball.net/feeds/main" type="rss" description="Mac and web curmudgeonry/nerdery. By John Gruber." text="Daring Fireball"/>
+<outline htmlUrl="http://www.engadget.com" xmlUrl="http://www.engadget.com/rss.xml" type="rss" description="Engadget" text="Engadget"/>
+<outline htmlUrl="http://gigaom.com" xmlUrl="http://feeds.feedburner.com/ommalik" type="rss" description="" text="GigaOM"/>
+<outline htmlUrl="http://gizmodo.com" xmlUrl="http://feeds.gawker.com/gizmodo/excerpts.xml" type="rss" description="Tech By Design" text="Gizmodo"/>
+<outline htmlUrl="http://www.iLounge.com" xmlUrl="http://feeds.feedburner.com/ilounge" type="rss" description="" text="iLounge"/>
+<outline htmlUrl="http://recode.net" xmlUrl="http://recode.net/feed/" type="rss" description="" text="Re/code"/>
+<outline htmlUrl="http://www.red-sweater.com/blog" xmlUrl="http://www.red-sweater.com/blog/feed" type="rss" description="Mac &amp; Technology Writings by Daniel Jalkut" text="Red Sweater Blog"/>
+<outline htmlUrl="http://slashdot.org/" xmlUrl="http://rss.slashdot.org/Slashdot/slashdot" type="rss" description="News for nerds, stuff that matters" text="Slashdot"/>
+<outline htmlUrl="http://techcrunch.com" xmlUrl="http://feeds.feedburner.com/TechCrunch" type="rss" description="TechCrunch is a group-edited blog that profiles the companies, products and events defining and transforming the new web." text="TechCrunch"/>
+</outline>
+<outline htmlUrl="http://www.boston.com/bigpicture/" xmlUrl="http://syndication.boston.com/bigpicture/index.xml" type="rss" description="News Stories in Photographs from the Boston Globe" text="The Big Picture"/>
+<outline htmlUrl="http://thenextweb.com" xmlUrl="http://feeds2.feedburner.com/thenextweb" type="rss" description="International technology news, business &amp; culture" text="The Next Web"/>
+<outline htmlUrl="http://responsive.rga.com/" xmlUrl="http://responsive.rga.com/rss" type="rss" description="The latest links, news and thinking in responsive web design. Collected by @pkattera, @atmasphere and Martin Rabaglia at R/GA." text="This Is Responsive"/>
+</body>
+</opml>
