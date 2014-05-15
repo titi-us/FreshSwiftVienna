@@ -68,25 +68,7 @@
 #pragma mark XML Parser
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-//    NSLog(@"didStartElement: %@", elementName);
-//    
-//    if (namespaceURI != nil)
-//        NSLog(@"namespace: %@", namespaceURI);
-//    
-//    if (qName != nil)
-//        NSLog(@"qualifiedName: %@", qName);
-//    
-    // print all attributes for this element
-//    NSEnumerator *attribs = [attributeDict keyEnumerator];
-//    NSString *key, *value;
-//    
-//    while((key = [attribs nextObject]) != nil) {
-//        value = [attributeDict objectForKey:key];
-//        NSLog(@"  attribute: %@ = %@", key, value);
-//    }
-    
-    // add code here to load any data members
-    // that your custom class might have
+
     
     if ([elementName isEqualToString: @"channel"])
     {
@@ -118,22 +100,22 @@
         
         if ([elementName isEqualToString: @"title"])
         {
-            currentRssItem.title = currentStringValue;
+            currentRssItem.title = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         } else if ([elementName isEqualToString: @"link"])
         {
-            currentRssItem.link = currentStringValue;
+            currentRssItem.link = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         } else if ([elementName isEqualToString: @"description"])
         {
             currentRssItem.description = currentStringValue;
         }  else if ([elementName isEqualToString: @"comments"])
         {
-            currentRssItem.comments = currentStringValue;
+            currentRssItem.comments = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         } else if ([elementName isEqualToString: @"guid"])
         {
-            currentRssItem.guid = currentStringValue;
+            currentRssItem.guid = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         } else if ([elementName isEqualToString: @"pubDate"])
         {
-            currentRssItem.pubDate = currentStringValue;
+            currentRssItem.pubDate = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         }
         
         
@@ -147,13 +129,13 @@
     
         if ([elementName isEqualToString: @"title"])
         {
-            channelAttributes.title = currentStringValue;
+            channelAttributes.title = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         } else if ([elementName isEqualToString: @"link"])
         {
-            channelAttributes.link = currentStringValue;
+            channelAttributes.link = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         } else if ([elementName isEqualToString: @"description"])
         {
-            channelAttributes.description = currentStringValue;
+            channelAttributes.description = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         } else if ([elementName isEqualToString: @"language"])
         {
             channelAttributes.language = currentStringValue;

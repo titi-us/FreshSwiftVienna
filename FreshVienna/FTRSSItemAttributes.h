@@ -16,6 +16,8 @@
     NSString *description; // Short content to be displayed
     NSString *pubDate;
     NSString *guid;
+    NSString *author;
+    NSURL *imageUrl;
 }
 
 @property (nonatomic, retain) NSString* title;
@@ -24,5 +26,7 @@
 @property (nonatomic, retain) NSString* description;
 @property (nonatomic, retain) NSString* pubDate;
 @property (nonatomic, retain) NSString* guid;
+@property (nonatomic, retain) NSString* author;
+@property (nonatomic, retain) NSURL* imageUrl;
 
 @end

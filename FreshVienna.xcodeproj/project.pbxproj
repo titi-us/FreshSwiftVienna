@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF223936192457FC0034F22E /* FTUIArticleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF223935192457FC0034F22E /* FTUIArticleCellView.m */; };
 		BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D14FD192304E900258673 /* FTUITreeItem.m */; };
 		BF7D150919231F7700258673 /* Test.opml in Resources */ = {isa = PBXBuildFile; fileRef = BF7D150819231F7700258673 /* Test.opml */; };
 		BF7D150C19231F8C00258673 /* FTOPMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D150B19231F8C00258673 /* FTOPMLReader.m */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF223934192457FC0034F22E /* FTUIArticleCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIArticleCellView.h; sourceTree = "<group>"; };
+		BF223935192457FC0034F22E /* FTUIArticleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellView.m; sourceTree = "<group>"; };
 		BF7D14FC192304E800258673 /* FTUITreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUITreeItem.h; sourceTree = "<group>"; };
 		BF7D14FD192304E900258673 /* FTUITreeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUITreeItem.m; sourceTree = "<group>"; };
 		BF7D150819231F7700258673 /* Test.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Test.opml; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF223933192457D10034F22E /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				BF223934192457FC0034F22E /* FTUIArticleCellView.h */,
+				BF223935192457FC0034F22E /* FTUIArticleCellView.m */,
+			);
+			name = CellViews;
+			sourceTree = "<group>";
+		};
 		BF7D1504192316AE00258673 /* OutlineView */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +176,7 @@
 			children = (
 				BFDB4A8A191F308400C46EAF /* FTUIMainViewController.h */,
 				BFDB4A8B191F308400C46EAF /* FTUIMainViewController.m */,
+				BF223933192457D10034F22E /* CellViews */,
 				BF7D1504192316AE00258673 /* OutlineView */,
 				BFDB4A92191F49BC00C46EAF /* FTUIViewDelegate.h */,
 				BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */,
@@ -373,6 +386,7 @@
 				BFDB4A81191F208700C46EAF /* FTRSSChannelAttributes.m in Sources */,
 				BFDB4A94191F49BC00C46EAF /* FTUIViewDelegate.m in Sources */,
 				BF89C51A1921B044001709E4 /* FTUIOutlineViewDataSource.m in Sources */,
+				BF223936192457FC0034F22E /* FTUIArticleCellView.m in Sources */,
 				BF7D150C19231F8C00258673 /* FTOPMLReader.m in Sources */,
 				BFF5D5FA191C70CC00301531 /* main.m in Sources */,
 			);

@@ -52,7 +52,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Initialization code here.
+        loaders = [NSMutableArray array];
     }
     
     
@@ -63,7 +63,6 @@
     
     self.urls = [reader loadUrl:filePath];
     
-    loaders = [NSMutableArray array];
     for (FTOPMLItem* url in self.urls) {
         FTUrlLoader *urlLoader = [[FTUrlLoader alloc] initWithUrl:url.xmlUrl];
         [loaders addObject:urlLoader];
@@ -94,12 +93,14 @@
     tableView = [[NSTableView alloc] initWithFrame:tableContainer.frame];
     [tableView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
     NSTableColumn *column =[[NSTableColumn alloc]initWithIdentifier:@"1"];
-    [column.headerCell setTitle:@"Headline"];
     
     [tableView setAllowsEmptySelection:NO];
     [tableView setAllowsMultipleSelection:NO];
     [tableView addTableColumn:column];
-    
+    [tableView setIntercellSpacing:NSSizeFromCGSize(CGSizeMake(1.0, 20.0))];
+    [tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleNone];
+                                    
+                                    
     channelDelegate = [[FTUIChannelDelegate alloc] init];
     
     
@@ -112,6 +113,8 @@
     [splitView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
     [splitView addSubview:tableContainer];
 
+    
+    tableView.backgroundColor = [NSColor colorWithCalibratedRed:173/255.0 green:178/255.0 blue:187/255.0 alpha:1];
     
     webContainer = [[NSScrollView alloc] init];
     [webContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
@@ -142,7 +145,8 @@
     [newTableView setAllowsEmptySelection:NO];
     [newTableView setAllowsMultipleSelection:NO];
     [newTableView addTableColumn:aColumn];
-
+    [newTableView setUsesAlternatingRowBackgroundColors:YES];
+    
     [newTableContainer setDocumentView:newTableView];
 
     
