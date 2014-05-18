@@ -41,6 +41,9 @@
     
 
 }
+
+
+
 @property (nonatomic, retain) WebView *webView;
 @property (nonatomic, retain) NSArray *urls;
 @end
@@ -116,12 +119,18 @@
     
     tableView.backgroundColor = [NSColor colorWithCalibratedRed:173/255.0 green:178/255.0 blue:187/255.0 alpha:1];
     
+    [tableView setTarget:self];
+    [tableView setDoubleAction:@selector(doubleClickOnRssItem:)];
+    
     webContainer = [[NSScrollView alloc] init];
     [webContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
     
     self.webView = [[WebView alloc] initWithFrame:webContainer.frame];
     [self.webView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
 
+    
+    [self.webView setPolicyDelegate:self];
+    
     [webContainer setDocumentView:webView];
     
     
@@ -227,6 +236,17 @@
     [[scrollView horizontalScroller] setControlSize: NSSmallControlSize];
 }
 
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id <WebPolicyDecisionListener>)listener
+{
+    if ([[actionInformation objectForKey:WebActionNavigationTypeKey] intValue]  == WebNavigationTypeLinkClicked) {
+        [listener ignore];
+        [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+    }
+    else
+        [listener use];
+}
+
+
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
@@ -252,6 +272,13 @@
             [self loadWebView:item];
         }];
     }
+}
+
+-(void)doubleClickOnRssItem:(id)object
+{
+    FTRSSItemAttributes* item = [channelDelegate.rssItems objectAtIndex:[tableView clickedRow]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:item.link]];
+
 }
 
 @end

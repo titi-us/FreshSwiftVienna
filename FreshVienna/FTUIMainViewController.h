@@ -13,5 +13,6 @@
 {
 }
 
+-(void)doubleClickOnRssItem:(id)object;
 -(void)loadWebView:(FTRSSItemAttributes*)item;
 @end
