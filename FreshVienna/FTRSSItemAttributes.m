@@ -7,12 +7,23 @@
 //
 
 #import "FTRSSItemAttributes.h"
-
+@interface FTRSSItemAttributes()
+{
+    BOOL hasSearchImage;
+    NSURL *cachedImageUrl;
+}
+@end
 @implementation FTRSSItemAttributes
 @synthesize title, link, comments, description, guid, pubDate,author,imageUrl;
 
 -(NSURL*)imageUrl
 {
+    if (hasSearchImage)
+    {
+        return cachedImageUrl;
+    }
+    hasSearchImage = YES;
+    cachedImageUrl = nil;
     if (self.description)
     {
         NSError *error = NULL;
@@ -28,14 +39,13 @@
                 NSURL *url = [match URL];
                 if ([url.path hasSuffix:@"jpg"] || [url.path hasSuffix:@"png"] ) // it's an image \o/
                 {
-                    NSLog(@"Url found -> %@", url);
-                    return url;
+                    cachedImageUrl = url;
+                    return cachedImageUrl;
                 }
             }
         }
-
     }
-    return nil;
+    return cachedImageUrl;
 }
 
 @end

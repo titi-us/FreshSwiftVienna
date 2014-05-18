@@ -9,6 +9,7 @@
 #import "FTUIChannelDelegate.h"
 #import "FTRSSItemAttributes.h"
 #import "FTUIArticleCellView.h"
+#import "FTUIArticleCellViewNoImageView.h"
 
 @implementation FTUIChannelDelegate
 @synthesize rssItems;
@@ -23,7 +24,8 @@
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
-    return 330;
+    FTRSSItemAttributes* item = [self.rssItems objectAtIndex:row];
+    return ([item imageUrl] != nil) ? 330 : 120;
 }
 
 
@@ -31,48 +33,62 @@
    viewForTableColumn:(NSTableColumn *)tableColumn
                   row:(NSInteger)row {
     
-    // Get an existing cell with the MyView identifier if it exists
-    FTUIArticleCellView *result = [tableView makeViewWithIdentifier:@"MyView" owner:self];
+    
+    FTRSSItemAttributes* item = [self.rssItems objectAtIndex:row];
+    NSView *result;
+    BOOL hasImage = [item imageUrl] != nil;
+    if (hasImage)
+    {
+        result = [tableView makeViewWithIdentifier:@"MyView" owner:self];
+
+    } else
+    {
+        result = [tableView makeViewWithIdentifier:@"MyViewNoImage" owner:self];
+    }
     
     // There is no existing cell to reuse so create a new one
     if (result == nil) {
-        
-        // Create the new NSTextField with a frame of the {0,0} with the width of the table.
-        // Note that the height of the frame is not really relevant, because the row height will modify the height.
-        result = [[FTUIArticleCellView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 150)];
-        
-        // The identifier of the NSTextField instance is set to MyView.
-        // This allows the cell to be reused.
-        result.identifier = @"MyView";
+        if (hasImage)
+        {
+            result = [[FTUIArticleCellView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 150)];
+            result.identifier = @"MyView";
+        } else{
+            result = [[FTUIArticleCellViewNoImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 150)];
+            result.identifier = @"MyViewNoImage";
+        }
     }
     
-    FTRSSItemAttributes* item = [self.rssItems objectAtIndex:row];
-    
-    [result setImageUrl:item.imageUrl];
-    [result setTitle:item.title];
-    [result setDescription:item.description];
-    [result setAuthor:item.guid];
-    [result setPubDate:item.pubDate];
-    // result is now guaranteed to be valid, either as a reused cell
-    // or as a new cell, so set the stringValue of the cell to the
-    // nameArray value at row
-//    result
-//    result.stringValue = [self.nameArray objectAtIndex:row];
-    
+    if (!hasImage)
+    {
+        [self setupCell:(FTUIArticleCellViewNoImageView*)result withItem:item];
+    } else
+    {
+        [self setupCellWithImage:(FTUIArticleCellView*)result withItem:item];
+    }
+
     // Return the result
     return result;
     
 }
 
+- (void)setupCell:(FTUIArticleCellViewNoImageView*)view withItem:(FTRSSItemAttributes*)item
+{
+    [view setTitle:item.title];
+    [view setDescription:item.description];
+    [view setAuthor:item.guid];
+    [view setPubDate:item.pubDate];
+}
 
 
-//// cell based
-//- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
-//{
-//    NSString *title = [(FTRSSItemAttributes*) [self.rssItems objectAtIndex:rowIndex] title];
-//    title = [title stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//    return title;
-//}
+
+- (void)setupCellWithImage:(FTUIArticleCellView*)view withItem:(FTRSSItemAttributes*)item
+{
+    [view setImageUrl:item.imageUrl];
+    [view setTitle:item.title];
+    [view setDescription:item.description];
+    [view setAuthor:item.guid];
+    [view setPubDate:item.pubDate];
+}
 
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
@@ -81,10 +97,6 @@
     if (tableView && [tableView selectedRow] > -1)
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"rssItemClicked" object:[self.rssItems objectAtIndex:[tableView selectedRow]]];
-        
-//        NSString *link = [(FTRSSItemAttributes*) [self.rssItems objectAtIndex:[tableView selectedRow]] link];
-//        link = [link stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:link]];
         
     }
 }

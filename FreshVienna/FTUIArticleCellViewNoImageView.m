@@ -1,14 +1,14 @@
 //
-//  FTUIArticleCellView.m
+//  FTUIArticleCellViewNoImageView.m
 //  FreshVienna
 //
-//  Created by Thibaut on 5/14/14.
+//  Created by Thibaut on 5/17/14.
 //  Copyright (c) 2014 Thibaut. All rights reserved.
 //
 
-#import "FTUIArticleCellView.h"
+#import "FTUIArticleCellViewNoImageView.h"
 
-@interface FTUIArticleCellView()
+@interface FTUIArticleCellViewNoImageView()
 {
     NSTextField *titleTextfield;
     NSImageView *myImageView;
@@ -16,35 +16,39 @@
     NSTextField *descriptionTextfield;
     NSTextField *authorTextfield;
     NSTextField *dateTextfield;
+
+    
 }
 
 @property(nonatomic, retain) NSTextField *titleTextfield;
-@property(nonatomic, retain) NSImageView *myImageView;
 
 
 @property(nonatomic, retain) NSTextField *descriptionTextfield;
 @property(nonatomic, retain) NSTextField *authorTextfield;
 @property(nonatomic, retain) NSTextField *dateTextfield;
 
-
-
 - (void)initCell;
-
 
 @end
 
-@implementation FTUIArticleCellView
+@implementation FTUIArticleCellViewNoImageView
 
-@synthesize descriptionTextfield, authorTextfield, dateTextfield, titleTextfield, myImageView;
+@synthesize descriptionTextfield, authorTextfield, dateTextfield, titleTextfield;
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self initCell];
-        // Initialization code here.
     }
     return self;
+}
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+    [super drawRect:dirtyRect];
+    
+    // Drawing code here.
 }
 
 -(BOOL)isFlipped
@@ -52,27 +56,23 @@
     return YES;
 }
 
-
 - (void)initCell
 {
- 
-    self.myImageView = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 200)];
-    self.titleTextfield = [[NSTextField alloc] initWithFrame:CGRectMake(10, 210, self.bounds.size.width - 20, 40)];
-
-    //self.descriptionTextfield = [[NSTextField alloc] initWithFrame:CGRectMake(0, 240, self.bounds.size.width, 40)];
-    self.authorTextfield = [[NSTextField alloc] initWithFrame:CGRectMake(0, 280, self.bounds.size.width/2, 40)];
-    self.dateTextfield = [[NSTextField alloc] initWithFrame:CGRectMake(self.bounds.size.width/2, 280, self.bounds.size.width/2, 40)];
+    
+    self.titleTextfield = [[NSTextField alloc] initWithFrame:CGRectMake(10, 10, self.bounds.size.width - 20, 70)];
+    
+    self.authorTextfield = [[NSTextField alloc] initWithFrame:CGRectMake(10, 80, self.bounds.size.width/2-10, 40)];
+    self.dateTextfield = [[NSTextField alloc] initWithFrame:CGRectMake(self.bounds.size.width/2+10, 80, self.bounds.size.width/2-20, 40)];
     
     [self setupTextField:self.titleTextfield];
     [self setupTextField:self.descriptionTextfield];
     [self setupTextField:self.authorTextfield];
     [self setupTextField:self.dateTextfield];
-    [self.titleTextfield setFont:[NSFont boldSystemFontOfSize:15]];
+    [self.titleTextfield setFont:[NSFont boldSystemFontOfSize:20]];
     
     
     [self.dateTextfield setTextColor:[NSColor colorWithCalibratedRed:173/255.0 green:178/255.0 blue:187/255.0 alpha:1]];
     
-    [self addSubview:self.myImageView];
     
     [self setTitle:@"Title"];
     [self setDescription:@"description"];
@@ -86,11 +86,10 @@
     
     [self.layer setBackgroundColor:CGColorGetConstantColor(kCGColorWhite)];
     [self.layer setBorderColor:CGColorGetConstantColor(kCGColorBlack)];
-
+    
     // TODO NSBOX
     
 }
-
 
 -(void)setupTextField:(NSTextField*)aTextfield
 {
@@ -98,17 +97,6 @@
     [aTextfield setDrawsBackground:NO];
     [aTextfield setBordered:NO];
     [self addSubview:aTextfield];
-}
-
--(void)setImageUrl:(NSURL*)value
-{
-    if (value != nil)
-    {
-        [self.myImageView setImage:[[NSImage alloc] initWithContentsOfURL:value]];
-    } else
-    {
-        [self.myImageView setImage:nil];
-    }
 }
 
 -(void)setTitle:(NSString*)value
@@ -142,13 +130,5 @@
 }
 
 
-
-
-- (void)drawRect:(NSRect)dirtyRect
-{
-    [super drawRect:dirtyRect];
-    
-    // Drawing code here.
-}
 
 @end

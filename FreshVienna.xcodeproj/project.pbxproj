@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF223936192457FC0034F22E /* FTUIArticleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF223935192457FC0034F22E /* FTUIArticleCellView.m */; };
+		BF369DF119284AF500498E2D /* FTUIArticleCellViewNoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */; };
 		BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D14FD192304E900258673 /* FTUITreeItem.m */; };
 		BF7D150919231F7700258673 /* Test.opml in Resources */ = {isa = PBXBuildFile; fileRef = BF7D150819231F7700258673 /* Test.opml */; };
 		BF7D150C19231F8C00258673 /* FTOPMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D150B19231F8C00258673 /* FTOPMLReader.m */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		BF223934192457FC0034F22E /* FTUIArticleCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIArticleCellView.h; sourceTree = "<group>"; };
 		BF223935192457FC0034F22E /* FTUIArticleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellView.m; sourceTree = "<group>"; };
+		BF369DEF19284AF500498E2D /* FTUIArticleCellViewNoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIArticleCellViewNoImageView.h; sourceTree = "<group>"; };
+		BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellViewNoImageView.m; sourceTree = "<group>"; };
 		BF7D14FC192304E800258673 /* FTUITreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUITreeItem.h; sourceTree = "<group>"; };
 		BF7D14FD192304E900258673 /* FTUITreeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUITreeItem.m; sourceTree = "<group>"; };
 		BF7D150819231F7700258673 /* Test.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Test.opml; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 		BF223933192457D10034F22E /* CellViews */ = {
 			isa = PBXGroup;
 			children = (
+				BF369DEF19284AF500498E2D /* FTUIArticleCellViewNoImageView.h */,
+				BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */,
 				BF223934192457FC0034F22E /* FTUIArticleCellView.h */,
 				BF223935192457FC0034F22E /* FTUIArticleCellView.m */,
 			);
@@ -384,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7D1510192322DD00258673 /* FTOPMLItem.m in Sources */,
+				BF369DF119284AF500498E2D /* FTUIArticleCellViewNoImageView.m in Sources */,
 				BF89C51D1921B09C001709E4 /* FTUIOutlineViewItem.m in Sources */,
 				BFDB4A84191F285800C46EAF /* FTRSSItemAttributes.m in Sources */,
 				BFDB4A7D191F184900C46EAF /* FTUrlLoader.m in Sources */,
