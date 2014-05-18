@@ -11,14 +11,11 @@
 
 @interface FTUrlLoader()
 {
-    NSMutableData *loadedData;
-    BOOL hasFinishedChannel;
     NSMutableString *currentStringValue;
-    FTRSSItemAttributes *currentRssItem;
 }
 
-@property (nonatomic, retain) NSMutableData *loadedData;
-@property (nonatomic, retain) FTRSSItemAttributes *currentRssItem;
+@property NSMutableData *loadedData;
+@property FTRSSItemAttributes *currentRssItem;
 @end
 
 @implementation FTUrlLoader
@@ -28,7 +25,6 @@
 
 - (id)initWithUrl:(NSString *)urlString
 {
-    hasFinishedChannel = NO;
     rssItems = [NSMutableArray array];
     NSURL* url = [NSURL URLWithString:urlString];
     loadedData = [NSMutableData data];
@@ -61,6 +57,8 @@
         NSLog(@"OK");
     
     loadedData = nil;
+    currentStringValue = nil;
+    currentRssItem = nil;
 }
 
 

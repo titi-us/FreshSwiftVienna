@@ -10,26 +10,15 @@
 
 @interface FTUIArticleCellView()
 {
-    NSTextField *titleTextfield;
-    NSImageView *myImageView;
-    
-    NSTextField *descriptionTextfield;
-    NSTextField *authorTextfield;
-    NSTextField *dateTextfield;
 }
 
-@property(nonatomic, retain) NSTextField *titleTextfield;
-@property(nonatomic, retain) NSImageView *myImageView;
-
-
-@property(nonatomic, retain) NSTextField *descriptionTextfield;
-@property(nonatomic, retain) NSTextField *authorTextfield;
-@property(nonatomic, retain) NSTextField *dateTextfield;
-
-
+@property NSTextField *titleTextfield;
+@property NSImageView *myImageView;
+@property NSTextField *descriptionTextfield;
+@property NSTextField *authorTextfield;
+@property NSTextField *dateTextfield;
 
 - (void)initCell;
-
 
 @end
 
@@ -104,6 +93,7 @@
 {
     if (value != nil)
     {
+        [self.myImageView setImageScaling:NSImageScaleProportionallyUpOrDown];
         [self.myImageView setImage:[[NSImage alloc] initWithContentsOfURL:value]];
     } else
     {

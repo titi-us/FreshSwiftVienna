@@ -11,13 +11,11 @@
 
 @interface FTUrlLoader : NSObject <NSURLConnectionDataDelegate, NSXMLParserDelegate>
 {
-    FTRSSChannelAttributes *channelAttributes;
-    NSMutableArray *rssItems;
 }
 
 - (id)initWithUrl:(NSString *)urlString;
 
-@property (nonatomic, retain) FTRSSChannelAttributes *channelAttributes;
-@property (nonatomic, retain) NSMutableArray *rssItems;
+@property FTRSSChannelAttributes *channelAttributes;
+@property NSMutableArray *rssItems;
 
 @end

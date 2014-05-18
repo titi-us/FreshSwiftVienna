@@ -24,6 +24,7 @@
     [xmlparser setShouldResolveExternalEntities:NO];
     // now parse the document
     [xmlparser parse];
+    xmlparser = nil;
     return loadedUrls;
 }
 

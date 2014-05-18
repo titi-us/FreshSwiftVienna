@@ -10,8 +10,7 @@
 
 @interface FTUIChannelDelegate : NSObject<NSTableViewDataSource, NSTableViewDelegate>
 {
-    NSArray *rssItems;
 }
-@property(nonatomic, retain) NSArray *rssItems;
+@property(weak) NSArray *rssItems;
 
 @end

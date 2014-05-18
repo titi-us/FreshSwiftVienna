@@ -10,23 +10,15 @@
 
 @interface FTRSSItemAttributes : NSObject
 {
-    NSString *title;
-    NSString *link; // Full Content
-    NSString *comments;
-    NSString *description; // Short content to be displayed
-    NSString *pubDate;
-    NSString *guid;
-    NSString *author;
-    NSURL *imageUrl;
 }
 
-@property (nonatomic, retain) NSString* title;
-@property (nonatomic, retain) NSString* link;
-@property (nonatomic, retain) NSString* comments;
-@property (nonatomic, retain) NSString* description;
-@property (nonatomic, retain) NSString* pubDate;
-@property (nonatomic, retain) NSString* guid;
-@property (nonatomic, retain) NSString* author;
-@property (nonatomic, retain) NSURL* imageUrl;
+@property NSString* title;
+@property NSString* link;
+@property NSString* comments;
+@property NSString* description;
+@property NSString* pubDate;
+@property NSString* guid;
+@property NSString* author;
+@property(nonatomic) NSURL* imageUrl;
 
 @end

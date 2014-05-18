@@ -19,14 +19,12 @@
     FTUIChannelDelegate *channelDelegate;
 
     // data
-    NSArray *urls;
     NSMutableArray *loaders;
     
     //views
     NSSplitView *splitView;
     NSTableView *tableView;
     NSScrollView *tableContainer;
-    WebView *webView;
     NSScrollView *webContainer;
     NSOutlineView *outlineView;
     
@@ -42,10 +40,8 @@
 
 }
 
-
-
-@property (nonatomic, retain) WebView *webView;
-@property (nonatomic, retain) NSArray *urls;
+@property WebView *webView;
+@property NSArray *urls;
 @end
 
 @implementation FTUIMainViewController
@@ -163,7 +159,20 @@
     newTableView.dataSource = self;
     newTableView.delegate = self;
     
-//    [self.view setAutoresizesSubviews:YES];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserverForName:@"rssItemClicked"
+                        object:nil
+                         queue:nil
+                    usingBlock:^(NSNotification *notification)
+     {
+         
+         
+         FTRSSItemAttributes* item = notification.object;
+         [self loadWebView:item];
+     }];
+
+    
+    //    [self.view setAutoresizesSubviews:YES];
 }
 
 #pragma SplitView Delegate
@@ -255,22 +264,12 @@
         FTUrlLoader *loader = [loaders objectAtIndex:[newTableView selectedRow]];
         channelDelegate.rssItems = loader.rssItems;
         
+        [tableView scrollToBeginningOfDocument:tableView];
         
         [tableView setDataSource:channelDelegate];
         [tableView setDelegate:channelDelegate];
         [tableView reloadData];
         
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserverForName:@"rssItemClicked"
-                            object:nil
-                             queue:nil
-                        usingBlock:^(NSNotification *notification)
-        {
-            
-        
-            FTRSSItemAttributes* item = notification.object;
-            [self loadWebView:item];
-        }];
     }
 }
 

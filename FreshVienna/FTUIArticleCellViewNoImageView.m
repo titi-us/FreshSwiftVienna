@@ -10,22 +10,12 @@
 
 @interface FTUIArticleCellViewNoImageView()
 {
-    NSTextField *titleTextfield;
-    NSImageView *myImageView;
-    
-    NSTextField *descriptionTextfield;
-    NSTextField *authorTextfield;
-    NSTextField *dateTextfield;
-
-    
 }
 
-@property(nonatomic, retain) NSTextField *titleTextfield;
-
-
-@property(nonatomic, retain) NSTextField *descriptionTextfield;
-@property(nonatomic, retain) NSTextField *authorTextfield;
-@property(nonatomic, retain) NSTextField *dateTextfield;
+@property NSTextField *titleTextfield;
+@property NSTextField *descriptionTextfield;
+@property NSTextField *authorTextfield;
+@property NSTextField *dateTextfield;
 
 - (void)initCell;
 

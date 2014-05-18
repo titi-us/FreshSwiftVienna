@@ -10,12 +10,9 @@
 
 @interface FTOPMLItem : NSObject
 {
-    NSString *xmlUrl;
-    NSString *title;
 }
 
-
-@property(nonatomic, retain) NSString *xmlUrl;
-@property(nonatomic, retain) NSString *title;
+@property NSString *xmlUrl;
+@property NSString *title;
 
 @end

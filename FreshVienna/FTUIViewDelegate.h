@@ -10,9 +10,8 @@
 
 @interface FTUIViewDelegate : NSObject<NSTableViewDataSource, NSTableViewDelegate>
 {
-    NSArray *urls;
 }
 
-@property(nonatomic, retain) NSArray *urls;
+@property(weak) NSArray *urls;
 
 @end

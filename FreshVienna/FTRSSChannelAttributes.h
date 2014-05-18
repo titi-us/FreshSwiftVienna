@@ -10,23 +10,15 @@
 
 @interface FTRSSChannelAttributes : NSObject
 {
-    NSString *title;
-    NSString *link;
-    NSString *description;
-    NSString *language;
-    NSString *copyright;
-    NSString *lastBuildDate;
-    NSString *generator;
-    NSString *docs;
 }
 
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *link;
-@property (nonatomic, retain) NSString *description;
-@property (nonatomic, retain) NSString *language;
-@property (nonatomic, retain) NSString *copyright;
-@property (nonatomic, retain) NSString *lastBuildDate;
-@property (nonatomic, retain) NSString *generator;
-@property (nonatomic, retain) NSString *docs;
+@property NSString *title;
+@property NSString *link;
+@property NSString *description;
+@property NSString *language;
+@property NSString *copyright;
+@property NSString *lastBuildDate;
+@property NSString *generator;
+@property NSString *docs;
 
 @end
