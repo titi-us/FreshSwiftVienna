@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface FTUIOutlineViewDataSource : NSObject
-
+@property NSArray *urls;
 @end

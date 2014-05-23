@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "FTRSSItemAttributes.h"
 
-@interface FTUIMainViewController : NSViewController<NSTableViewDataSource, NSTableViewDelegate, NSSplitViewDelegate>
+@interface FTUIMainViewController : NSViewController<NSTableViewDataSource, NSTableViewDelegate, NSSplitViewDelegate, NSOutlineViewDelegate>
 {
 }
 

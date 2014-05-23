@@ -10,6 +10,7 @@
 
 @interface FTUIArticleCellView()
 {
+    NSImage *image;
 }
 
 @property NSTextField *titleTextfield;
@@ -93,10 +94,17 @@
 {
     if (value != nil)
     {
+        if (image)
+        {
+            image = nil;
+        }
+        image = [[NSImage alloc] initWithContentsOfURL:value];
+
         [self.myImageView setImageScaling:NSImageScaleProportionallyUpOrDown];
-        [self.myImageView setImage:[[NSImage alloc] initWithContentsOfURL:value]];
+        [self.myImageView setImage:image];
     } else
     {
+        image = nil;
         [self.myImageView setImage:nil];
     }
 }

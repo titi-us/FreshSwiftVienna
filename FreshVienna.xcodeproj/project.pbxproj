@@ -35,6 +35,8 @@
 		BFF5D60E191C70CC00301531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5D5ED191C70CC00301531 /* Cocoa.framework */; };
 		BFF5D616191C70CC00301531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D614191C70CC00301531 /* InfoPlist.strings */; };
 		BFF5D618191C70CD00301531 /* FreshViennaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D617191C70CD00301531 /* FreshViennaTests.m */; };
+		BFF6158B192AFE060098FA50 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF6158A192AFE060098FA50 /* ImageAndTextCell.m */; };
+		BFF6158E192B03030098FA50 /* BaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF6158D192B03030098FA50 /* BaseNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,10 @@
 		BFF5D613191C70CC00301531 /* FreshViennaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FreshViennaTests-Info.plist"; sourceTree = "<group>"; };
 		BFF5D615191C70CC00301531 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BFF5D617191C70CD00301531 /* FreshViennaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreshViennaTests.m; sourceTree = "<group>"; };
+		BFF61589192AFE050098FA50 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		BFF6158A192AFE060098FA50 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
+		BFF6158C192B03030098FA50 /* BaseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNode.h; sourceTree = "<group>"; };
+		BFF6158D192B03030098FA50 /* BaseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,12 +146,16 @@
 		BF7D1504192316AE00258673 /* OutlineView */ = {
 			isa = PBXGroup;
 			children = (
+				BFF6158C192B03030098FA50 /* BaseNode.h */,
+				BFF6158D192B03030098FA50 /* BaseNode.m */,
+				BFF61589192AFE050098FA50 /* ImageAndTextCell.h */,
+				BFF6158A192AFE060098FA50 /* ImageAndTextCell.m */,
 				BF89C5181921B044001709E4 /* FTUIOutlineViewDataSource.h */,
 				BF89C5191921B044001709E4 /* FTUIOutlineViewDataSource.m */,
 				BF89C51B1921B09C001709E4 /* FTUIOutlineViewItem.h */,
+				BF89C51C1921B09C001709E4 /* FTUIOutlineViewItem.m */,
 				BF7D14FC192304E800258673 /* FTUITreeItem.h */,
 				BF7D14FD192304E900258673 /* FTUITreeItem.m */,
-				BF89C51C1921B09C001709E4 /* FTUIOutlineViewItem.m */,
 			);
 			name = OutlineView;
 			sourceTree = "<group>";
@@ -395,7 +405,9 @@
 				BFDB4A7D191F184900C46EAF /* FTUrlLoader.m in Sources */,
 				BFF5D601191C70CC00301531 /* FTAppDelegate.m in Sources */,
 				BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */,
+				BFF6158E192B03030098FA50 /* BaseNode.m in Sources */,
 				BFDB4A8C191F308400C46EAF /* FTUIMainViewController.m in Sources */,
+				BFF6158B192AFE060098FA50 /* ImageAndTextCell.m in Sources */,
 				BFDB4A97191F49D800C46EAF /* FTUIChannelDelegate.m in Sources */,
 				BFDB4A81191F208700C46EAF /* FTRSSChannelAttributes.m in Sources */,
 				BFDB4A94191F49BC00C46EAF /* FTUIViewDelegate.m in Sources */,

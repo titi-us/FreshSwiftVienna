@@ -40,10 +40,12 @@
                 if ([url.path hasSuffix:@"jpg"] || [url.path hasSuffix:@"png"] ) // it's an image \o/
                 {
                     cachedImageUrl = url;
-                    return cachedImageUrl;
+                    break;
                 }
             }
         }
+        matches = nil;
+        detector = nil;
     }
     return cachedImageUrl;
 }

@@ -12,6 +12,8 @@
 #import <WebKit/WebKit.h>
 #import "FTOPMLReader.h"
 #import "FTOPMLItem.h"
+#import "ImageAndTextCell.h"
+#import "FTUIOutlineViewDataSource.h"
 
 @interface FTUIMainViewController ()
 {
@@ -20,6 +22,8 @@
 
     // data
     NSMutableArray *loaders;
+    FTUIOutlineViewDataSource *outlineDataSource;
+    
     
     //views
     NSSplitView *splitView;
@@ -152,12 +156,41 @@
     [newTableView addTableColumn:aColumn];
     [newTableView setUsesAlternatingRowBackgroundColors:YES];
     
-    [newTableContainer setDocumentView:newTableView];
+
+    
+//    [self.view addSubview:newTableContainer];
+//    newTableView.dataSource = self;
+//    newTableView.delegate = self;
+    
+    
+    outlineFrame.origin.y = - outlineFrame.origin.y;
+    outlineView = [[NSOutlineView alloc] initWithFrame:outlineFrame];
+//    [outlineView setAutoresizingMask: NSViewHeightSizable];
+
+    
+    outlineDataSource = [[FTUIOutlineViewDataSource alloc] init];
+    outlineDataSource.urls = urls;
+    
+    [outlineView setDataSource:(id<NSOutlineViewDataSource>)outlineDataSource];
+    [outlineView setDelegate:(id<NSOutlineViewDelegate>)self];
+    
+    // set the first column's cells as `ImageAndTextCell`s
+    ImageAndTextCell* iatc = [[ImageAndTextCell alloc] init];
+    [iatc setEditable:NO];
+
+    [newTableContainer setDocumentView:outlineView];
+
+    
+    [outlineView addTableColumn:column];
+    [[[outlineView tableColumns] objectAtIndex:0] setIdentifier:@"name"];
+    [[[outlineView tableColumns] objectAtIndex:0] setDataCell:iatc];
 
     
     [self.view addSubview:newTableContainer];
-    newTableView.dataSource = self;
-    newTableView.delegate = self;
+
+    
+    
+    
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserverForName:@"rssItemClicked"
@@ -171,9 +204,109 @@
          [self loadWebView:item];
      }];
 
-    
-    //    [self.view setAutoresizesSubviews:YES];
+    self.webView.frameLoadDelegate = self;
 }
+
+
+
+
+
+
+/*******************************************************
+ *
+ * OUTLINE-VIEW DELEGATE
+ *
+ *******************************************************/
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
+{
+    return YES;
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
+{
+    return NO;
+}
+
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification
+{
+    NSInteger selected = [outlineView selectedRow];
+    if (selected > -1)
+    {
+        FTUrlLoader *loader = [loaders objectAtIndex:selected];
+        channelDelegate.rssItems = loader.rssItems;
+        
+        [tableView scrollToBeginningOfDocument:tableView];
+        
+        if (tableView.dataSource != channelDelegate)
+        {
+            [tableView setDataSource:channelDelegate];
+            [tableView setDelegate:channelDelegate];
+        }
+        [tableView reloadData];
+        
+    }
+
+}
+
+- (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+    [cell setDrawsBackground:NO];
+    
+//    if ([item isFileHidden]) [cell setTextColor:[NSColor grayColor]];
+//    else
+    [cell setTextColor:[NSColor blackColor]];
+    
+    if ([[tableColumn identifier] isEqualToString:@"NameColumn"])
+    {
+//        if ([item isFolder])
+//            [cell setImage:[[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)] size:15.0];
+//        else
+//            [cell setImage:[[NSWorkspace sharedWorkspace] iconForFile:item] size:15.0];
+//
+//        if ([item isFileHidden])
+//        {
+//            [cell setFileHidden:YES];
+//        }
+//        else
+//        {
+//            [cell setFileHidden:NO];
+//        }
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma SplitView Delegate
 
@@ -206,8 +339,6 @@
 
 - (void)loadWebView:(FTRSSItemAttributes*)item
 {
-    self.webView.frameLoadDelegate = self;
-    
     
     NSMutableString * htmlText = [[NSMutableString alloc] initWithString:@"<!DOCTYPE html><html><head><meta charset=\"UTF-8\" />"];
 	if (cssTemplate != nil)
@@ -230,8 +361,6 @@
     
     [htmlText appendString:htmlArticle];
 	[htmlText appendString:@"</body></html>"];
-
-    
     
     [self.webView.mainFrame loadHTMLString:htmlText baseURL:[NSURL URLWithString:item.link]];
 }
@@ -265,9 +394,12 @@
         channelDelegate.rssItems = loader.rssItems;
         
         [tableView scrollToBeginningOfDocument:tableView];
-        
-        [tableView setDataSource:channelDelegate];
-        [tableView setDelegate:channelDelegate];
+
+        if (tableView.dataSource != channelDelegate)
+        {
+            [tableView setDataSource:channelDelegate];
+            [tableView setDelegate:channelDelegate];
+        }
         [tableView reloadData];
         
     }
