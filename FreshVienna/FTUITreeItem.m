@@ -9,13 +9,13 @@
 #import "FTUITreeItem.h"
 
 @implementation FTUITreeItem
-@synthesize name, value;
+@synthesize item, loader;
 
-+(FTUITreeItem*)treeItemFromName:(NSString*)name value:(NSString*)value
++(FTUITreeItem*)treeItemFromItem:(FTOPMLItem*)item loader:(FTUrlLoader*)loader;
 {
     FTUITreeItem *td = [[FTUITreeItem alloc] init];
-    td.name = name;
-    td.value = value;
+    td.item = item;
+    td.loader = loader;
     
     return td;
 }

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface FTUIArticleCellView : NSTableCellView
+@interface FTUIArticleCellView : NSTableCellView <NSImageDelegate>
 {
 }
 

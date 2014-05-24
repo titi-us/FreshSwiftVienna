@@ -14,6 +14,7 @@
 #import "FTOPMLItem.h"
 #import "ImageAndTextCell.h"
 #import "FTUIOutlineViewDataSource.h"
+#import "FTUITreeItem.h"
 
 @interface FTUIMainViewController ()
 {
@@ -41,7 +42,8 @@
     NSString *htmlTemplate;
     NSString *cssTemplate;
     
-
+    NSMutableArray *treeArray;
+    
 }
 
 @property WebView *webView;
@@ -66,10 +68,15 @@
     
     self.urls = [reader loadUrl:filePath];
     
+    treeArray = [NSMutableArray array];
+    
     for (FTOPMLItem* url in self.urls) {
         FTUrlLoader *urlLoader = [[FTUrlLoader alloc] initWithUrl:url.xmlUrl];
         [loaders addObject:urlLoader];
+        [treeArray addObject:[FTUITreeItem treeItemFromItem:url loader:urlLoader]];
     }
+    
+    
     
     NSError *error;
     htmlTemplate = [NSString stringWithContentsOfFile:[mainBundle pathForResource:@"template" ofType:@"html"] encoding:NSUTF8StringEncoding error:&error];
@@ -169,7 +176,7 @@
 
     
     outlineDataSource = [[FTUIOutlineViewDataSource alloc] init];
-    outlineDataSource.urls = urls;
+    outlineDataSource.data = treeArray;
     
     [outlineView setDataSource:(id<NSOutlineViewDataSource>)outlineDataSource];
     [outlineView setDelegate:(id<NSOutlineViewDelegate>)self];
@@ -205,6 +212,11 @@
      }];
 
     self.webView.frameLoadDelegate = self;
+    
+    [center addObserverForName:@"loading updated" object:nil queue:nil usingBlock:^(NSNotification *notification)
+    {
+        [outlineView reloadData];
+    }];
 }
 
 
@@ -235,6 +247,7 @@
     {
         FTUrlLoader *loader = [loaders objectAtIndex:selected];
         channelDelegate.rssItems = loader.rssItems;
+        channelDelegate.feedItem = loader.channelAttributes;
         
         [tableView scrollToBeginningOfDocument:tableView];
         
@@ -252,27 +265,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {
     [cell setDrawsBackground:NO];
     
-//    if ([item isFileHidden]) [cell setTextColor:[NSColor grayColor]];
-//    else
     [cell setTextColor:[NSColor blackColor]];
-    
-    if ([[tableColumn identifier] isEqualToString:@"NameColumn"])
-    {
-//        if ([item isFolder])
-//            [cell setImage:[[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)] size:15.0];
-//        else
-//            [cell setImage:[[NSWorkspace sharedWorkspace] iconForFile:item] size:15.0];
-//
-//        if ([item isFileHidden])
-//        {
-//            [cell setFileHidden:YES];
-//        }
-//        else
-//        {
-//            [cell setFileHidden:NO];
-//        }
-        
-    }
     
 }
 
@@ -356,8 +349,16 @@
     NSString * htmlArticle;
     htmlArticle = [htmlTemplate stringByReplacingOccurrencesOfString:@"$ArticleLink$" withString:[item link]];
     htmlArticle = [htmlArticle stringByReplacingOccurrencesOfString:@"$ArticleTitle$" withString:[item title]];
+    htmlArticle = [htmlArticle stringByReplacingOccurrencesOfString:@"$ArticleDate$" withString:[item pubDate]];
     htmlArticle = [htmlArticle stringByReplacingOccurrencesOfString:@"$ArticleBody$" withString:[item description]];
     
+    
+    NSInteger selected = [outlineView selectedRow];
+    if (selected > -1)
+    {
+        FTUrlLoader *loader = [loaders objectAtIndex:selected];
+        htmlArticle = [htmlArticle stringByReplacingOccurrencesOfString:@"$FeedTitle$" withString:[loader.channelAttributes title]];
+    }
     
     [htmlText appendString:htmlArticle];
 	[htmlText appendString:@"</body></html>"];

@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FTUrlLoader.h"
+#import "FTOPMLItem.h"
 
 @interface FTUITreeItem : NSObject
 {
-    NSString *name;
-    NSString *value;
 }
 
-@property (copy) NSString *name;
-@property (copy) NSString *value;
+@property FTUrlLoader *loader;
+@property FTOPMLItem *item;
 
-+(FTUITreeItem*)treeItemFromName:(NSString*)name value:(NSString*)value;
++(FTUITreeItem*)treeItemFromItem:(FTOPMLItem*)item loader:(FTUrlLoader*)loader;
 
 @end

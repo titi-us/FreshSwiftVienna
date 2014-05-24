@@ -29,6 +29,7 @@
     NSURL* url = [NSURL URLWithString:urlString];
     loadedData = [NSMutableData data];
     [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:url] delegate:self];
+    self.isLoading = YES;
     return [self init];
 }
 
@@ -59,6 +60,11 @@
     loadedData = nil;
     currentStringValue = nil;
     currentRssItem = nil;
+    
+    self.isLoading = NO;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loading updated" object:self];
+    
 }
 
 
@@ -114,6 +120,18 @@
         } else if ([elementName isEqualToString: @"pubDate"])
         {
             currentRssItem.pubDate = [currentStringValue stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            NSDate *pubDate = [NSDate dateWithNaturalLanguageString:currentRssItem.pubDate];
+            
+            NSCalendar *cal = [NSCalendar currentCalendar];
+            NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+            NSDate *today = [cal dateFromComponents:components];
+            components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:pubDate];
+            NSDate *otherDate = [cal dateFromComponents:components];
+            
+            if([today isEqualToDate:otherDate]) {
+                self.unreadCount += 1;
+            }
         }
         
         

@@ -10,7 +10,7 @@
 
 @interface FTUIArticleCellView()
 {
-    NSImage *image;
+    NSImage *myImage;
 }
 
 @property NSTextField *titleTextfield;
@@ -20,6 +20,7 @@
 @property NSTextField *dateTextfield;
 
 - (void)initCell;
++(NSImage*)scaleImageToFillView:(NSImageView*)imageView fromImage:(NSImage*)image;
 
 @end
 
@@ -94,20 +95,68 @@
 {
     if (value != nil)
     {
-        if (image)
+        if (myImage)
         {
-            image = nil;
+            myImage = nil;
         }
-        image = [[NSImage alloc] initWithContentsOfURL:value];
+        myImage = [[NSImage alloc] initByReferencingURL:value];
+        NSImage*  targetImage = [FTUIArticleCellView scaleImageToFillView:self.myImageView fromImage:myImage];
+        myImage = targetImage;
+        [self.myImageView setImage:myImage];
 
-        [self.myImageView setImageScaling:NSImageScaleProportionallyUpOrDown];
-        [self.myImageView setImage:image];
     } else
     {
-        image = nil;
+        myImage = nil;
         [self.myImageView setImage:nil];
     }
 }
+
++(NSImage*)scaleImageToFillView:(NSImageView*)imageView fromImage:(NSImage*)image
+{
+    NSImage*  targetImage = [[NSImage alloc] initWithSize:imageView.frame.size];
+    
+    NSSize imageSize = [image size];
+    NSSize imageViewSize = imageView.frame.size; // Yes, do not use dstRect.
+    
+    
+    NSSize newImageSize = [image size];
+    
+    CGFloat imageAspectRatio = imageSize.height/imageSize.width;
+    CGFloat imageViewAspectRatio = imageViewSize.height/imageViewSize.width;
+    
+    if (imageAspectRatio < imageViewAspectRatio) {
+        // Image is more horizontal than the view. Image left and right borders need to be cropped.
+        newImageSize.width = imageSize.height / imageViewAspectRatio;
+    }
+    else {
+        // Image is more vertical than the view. Image top and bottom borders need to be cropped.
+        newImageSize.height = imageSize.width * imageViewAspectRatio;
+    }
+    
+    NSRect srcRect = NSMakeRect(imageSize.width/2.0-newImageSize.width/2.0,
+                                imageSize.height/2.0-newImageSize.height/2.0,
+                                newImageSize.width,
+                                newImageSize.height);
+    
+    
+    
+    
+    [targetImage lockFocus];
+    
+    [image drawInRect:imageView.frame // Interestingly, here needs to be dstRect and not self.bounds
+               fromRect:srcRect
+              operation:NSCompositeCopy
+               fraction:1.0
+         respectFlipped:YES
+                  hints:@{NSImageHintInterpolation: @(NSImageInterpolationHigh)}];
+    
+    
+    [targetImage unlockFocus];
+    return targetImage;
+}
+
+
+
 
 -(void)setTitle:(NSString*)value
 {

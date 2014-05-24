@@ -7,12 +7,13 @@
 //
 
 #import "FTUIChannelDelegate.h"
+
 #import "FTRSSItemAttributes.h"
 #import "FTUIArticleCellView.h"
 #import "FTUIArticleCellViewNoImageView.h"
 
 @implementation FTUIChannelDelegate
-@synthesize rssItems;
+@synthesize rssItems, feedItem;
 
 #pragma TableDataSource Delegate
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -75,7 +76,7 @@
 {
     [view setTitle:item.title];
     [view setDescription:item.description];
-    [view setAuthor:item.guid];
+    [view setAuthor:feedItem.title];
     [view setPubDate:item.pubDate];
 }
 
@@ -86,7 +87,7 @@
     [view setImageUrl:item.imageUrl];
     [view setTitle:item.title];
     [view setDescription:item.description];
-    [view setAuthor:item.guid];
+    [view setAuthor:feedItem.title];
     [view setPubDate:item.pubDate];
 }
 

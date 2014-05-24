@@ -15,6 +15,8 @@
 
 - (id)initWithUrl:(NSString *)urlString;
 
+@property BOOL isLoading;
+@property NSInteger unreadCount;
 @property FTRSSChannelAttributes *channelAttributes;
 @property NSMutableArray *rssItems;
 

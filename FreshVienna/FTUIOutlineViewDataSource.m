@@ -8,13 +8,14 @@
 
 #import "FTUIOutlineViewDataSource.h"
 #import "FTUIOutlineViewItem.h"
+#import "FTUITreeItem.h"
 
 @implementation FTUIOutlineViewDataSource
-@synthesize urls;
+@synthesize data;
 // Data Source methods
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
-    return (item == nil) ? [urls count] : 0;
+    return (item == nil) ? [data count] : 0;
 //    return (item == nil) ? [urls count] : [item numberOfChildren];
 }
 
@@ -27,12 +28,23 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
     
-    return (item == nil) ? [urls objectAtIndex:index] : nil;
+    return (item == nil) ? [data objectAtIndex:index] : nil;
 }
 
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
-    return (item == nil) ? @"/" : [item title];
+    if (item == nil)
+    {
+        return @"";
+    }
+    
+    FTUITreeItem *treeItem = item;
+    if ([treeItem.loader isLoading])
+    {
+        return [NSString stringWithFormat:@"%@ - loading", treeItem.item.title];
+    }
+    return [NSString stringWithFormat:@"%@ - %li", treeItem.item.title, treeItem.loader.unreadCount];
 }
+
 
 @end
