@@ -33,17 +33,17 @@
 
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
-    if (item == nil)
-    {
-        return @"";
-    }
-    
-    FTUITreeItem *treeItem = item;
-    if ([treeItem.loader isLoading])
-    {
-        return [NSString stringWithFormat:@"%@ - loading", treeItem.item.title];
-    }
-    return [NSString stringWithFormat:@"%@ - %li", treeItem.item.title, treeItem.loader.unreadCount];
+    return item;
+//
+//    
+//    FTUITreeItem *treeItem = item;
+//    
+//    return treeItem;
+//    if ([treeItem.loader isLoading])
+//    {
+//        return [NSString stringWithFormat:@"%@ - loading", treeItem.item.title];
+//    }
+//    return [NSString stringWithFormat:@"%@ - %li", treeItem.item.title, treeItem.loader.unreadCount];
 }
 
 

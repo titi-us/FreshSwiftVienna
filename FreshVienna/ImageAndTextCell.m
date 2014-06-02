@@ -48,6 +48,7 @@
 
 #import "ImageAndTextCell.h"
 #import "BaseNode.h"
+#import "FTUITreeItem.h"
 
 #define kImageOriginXOffset     3
 #define kImageOriginYOffset     1
@@ -74,7 +75,7 @@
 	if (self)
     {
         // we want a smaller font
-        [self setFont:[NSFont systemFontOfSize:[NSFont smallSystemFontSize]]];
+        [self setFont:[NSFont systemFontOfSize:[NSFont systemFontSize]]];
     }
 	return self;
 }
@@ -87,6 +88,27 @@
     ImageAndTextCell *cell = (ImageAndTextCell *)[super copyWithZone:zone];
     cell.image = self.image;
     return cell;
+}
+
+- (void)setObjectValue:(id)item
+{
+    if (item != nil && ![item isKindOfClass:[NSString class]])
+    {
+        FTUITreeItem *treeItem = item;
+        [self setTitle:treeItem.item.title];
+        [super setObjectValue:treeItem.item.title];
+        if (treeItem.loader.unreadCount == 0)
+        {
+            [self setBackgroundColor:[NSColor colorWithCalibratedRed:0.27 green:0.78 blue:0.31 alpha:1.0]];
+        } else if (treeItem.loader.unreadCount == 1)
+        {
+            [self setBackgroundColor:[NSColor colorWithCalibratedRed:0.76 green:0.59 blue:0.29 alpha:1.0]];
+        } else
+        {
+            [self setBackgroundColor:[NSColor colorWithCalibratedRed:0.74 green:0.29 blue:0.27 alpha:1.0]];
+        }
+    }
+
 }
 
 // -------------------------------------------------------------------------------

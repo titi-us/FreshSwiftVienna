@@ -39,8 +39,8 @@
     
     frame.origin.y -= (800 - currentHeight);
     [self.window setFrame:frame display:YES];
-
     [self.window setContentView:mainViewController.view];
+    [self.window setFrameAutosaveName:[self.window representedFilename]];
     
 }
 

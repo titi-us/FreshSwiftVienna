@@ -34,7 +34,6 @@
     NSOutlineView *outlineView;
     
     // temp views
-    NSTableView *newTableView;
     NSScrollView *newTableContainer;
     
     
@@ -97,12 +96,62 @@
     CGRect remainingFrame;
     CGRectDivide(frame, &outlineFrame, &remainingFrame, 150, CGRectMinXEdge);
     
+    
+    NSTableColumn *column =[[NSTableColumn alloc]initWithIdentifier:@"1"];
+    
+    
+    // outline view
+    newTableContainer = [[NSScrollView alloc] initWithFrame:outlineFrame];
+    [newTableContainer setAutoresizingMask: NSViewHeightSizable];
+    
+    
+    
+    
+    
+    outlineFrame.origin.y = - outlineFrame.origin.y;
+    outlineView = [[NSOutlineView alloc] initWithFrame:outlineFrame];
+    
+    
+    outlineDataSource = [[FTUIOutlineViewDataSource alloc] init];
+    outlineDataSource.data = treeArray;
+    
+    [outlineView setDataSource:(id<NSOutlineViewDataSource>)outlineDataSource];
+    [outlineView setDelegate:(id<NSOutlineViewDelegate>)self];
+    
+    // set the first column's cells as `ImageAndTextCell`s
+    ImageAndTextCell* iatc = [[ImageAndTextCell alloc] init];
+    [iatc setEditable:NO];
+    
+    [newTableContainer setDocumentView:outlineView];
+    
+    
+    [outlineView addTableColumn:column];
+    [outlineView setIntercellSpacing:NSMakeSize(0, 0)];
+    [[[outlineView tableColumns] objectAtIndex:0] setIdentifier:@"name"];
+    [[[outlineView tableColumns] objectAtIndex:0] setDataCell:iatc];
+    
+    
+//    [self.view addSubview:newTableContainer];
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // table view
+    
+    
     tableContainer = [[NSScrollView alloc] init];
     [tableContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
     
     tableView = [[NSTableView alloc] initWithFrame:tableContainer.frame];
     [tableView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-    NSTableColumn *column =[[NSTableColumn alloc]initWithIdentifier:@"1"];
     
     [tableView setAllowsEmptySelection:NO];
     [tableView setAllowsMultipleSelection:NO];
@@ -115,19 +164,17 @@
     
     
     [tableContainer setDocumentView:tableView];
-
-    
-    splitView = [[NSSplitView alloc] initWithFrame:remainingFrame];
-    [splitView setDelegate:self];
-    [splitView setVertical:YES];
-    [splitView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-    [splitView addSubview:tableContainer];
-
-    
     tableView.backgroundColor = [NSColor colorWithCalibratedRed:173/255.0 green:178/255.0 blue:187/255.0 alpha:1];
     
     [tableView setTarget:self];
     [tableView setDoubleAction:@selector(doubleClickOnRssItem:)];
+    
+    
+    
+    
+    
+    // web view
+    
     
     webContainer = [[NSScrollView alloc] init];
     [webContainer setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
@@ -139,61 +186,27 @@
     [self.webView setPolicyDelegate:self];
     
     [webContainer setDocumentView:webView];
-    
-    
-    [splitView addSubview:webContainer];
-    [self.view addSubview:splitView];
     [tableView reloadData];
     
+    
+    
+    splitView = [[NSSplitView alloc] initWithFrame:frame];
+    [splitView setDelegate:self];
+    [splitView setVertical:YES];
+    [splitView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+    [splitView addSubview:newTableContainer];
+    [splitView addSubview:tableContainer];
+    [splitView addSubview:webContainer];
+    [splitView setDividerStyle:NSSplitViewDividerStyleThin];
+    [splitView adjustSubviews];
+    [splitView setPosition:outlineFrame.size.width ofDividerAtIndex:0];
+    [splitView setPosition:(remainingFrame.origin.x + remainingFrame.size.width/2) ofDividerAtIndex:1];
+
+    [self.view addSubview:splitView];
+    
 
     
     
-    newTableContainer = [[NSScrollView alloc] initWithFrame:outlineFrame];
-    [newTableContainer setAutoresizingMask: NSViewHeightSizable];
-    newTableView = [[NSTableView alloc] initWithFrame:outlineFrame];
-
-    
-    
-    [newTableView setAutoresizingMask:NSViewHeightSizable];
-    NSTableColumn *aColumn =[[NSTableColumn alloc]initWithIdentifier:@"1"];
-    [aColumn.headerCell setTitle:@"Channels"];
-    
-    [newTableView setAllowsEmptySelection:NO];
-    [newTableView setAllowsMultipleSelection:NO];
-    [newTableView addTableColumn:aColumn];
-    [newTableView setUsesAlternatingRowBackgroundColors:YES];
-    
-
-    
-//    [self.view addSubview:newTableContainer];
-//    newTableView.dataSource = self;
-//    newTableView.delegate = self;
-    
-    
-    outlineFrame.origin.y = - outlineFrame.origin.y;
-    outlineView = [[NSOutlineView alloc] initWithFrame:outlineFrame];
-//    [outlineView setAutoresizingMask: NSViewHeightSizable];
-
-    
-    outlineDataSource = [[FTUIOutlineViewDataSource alloc] init];
-    outlineDataSource.data = treeArray;
-    
-    [outlineView setDataSource:(id<NSOutlineViewDataSource>)outlineDataSource];
-    [outlineView setDelegate:(id<NSOutlineViewDelegate>)self];
-    
-    // set the first column's cells as `ImageAndTextCell`s
-    ImageAndTextCell* iatc = [[ImageAndTextCell alloc] init];
-    [iatc setEditable:NO];
-
-    [newTableContainer setDocumentView:outlineView];
-
-    
-    [outlineView addTableColumn:column];
-    [[[outlineView tableColumns] objectAtIndex:0] setIdentifier:@"name"];
-    [[[outlineView tableColumns] objectAtIndex:0] setDataCell:iatc];
-
-    
-    [self.view addSubview:newTableContainer];
 
     
     
@@ -263,8 +276,7 @@
 }
 
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {
-    [cell setDrawsBackground:NO];
-    
+    [cell setDrawsBackground:YES];
     [cell setTextColor:[NSColor blackColor]];
     
 }
@@ -305,6 +317,10 @@
 
 - (CGFloat)splitView:(NSSplitView *)splitView constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)dividerIndex;
 {
+    if (dividerIndex == 0)
+    {
+        return proposedMinimumPosition + 50;
+    }
     return proposedMinimumPosition + 200;
 }
 /*
@@ -387,24 +403,6 @@
 
 
 
-- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
-{
-    if ([newTableView selectedRow] > -1)
-    {
-        FTUrlLoader *loader = [loaders objectAtIndex:[newTableView selectedRow]];
-        channelDelegate.rssItems = loader.rssItems;
-        
-        [tableView scrollToBeginningOfDocument:tableView];
-
-        if (tableView.dataSource != channelDelegate)
-        {
-            [tableView setDataSource:channelDelegate];
-            [tableView setDelegate:channelDelegate];
-        }
-        [tableView reloadData];
-        
-    }
-}
 
 -(void)doubleClickOnRssItem:(id)object
 {
