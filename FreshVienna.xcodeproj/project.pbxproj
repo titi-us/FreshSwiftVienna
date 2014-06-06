@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		BF223936192457FC0034F22E /* FTUIArticleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF223935192457FC0034F22E /* FTUIArticleCellView.m */; };
 		BF369DF119284AF500498E2D /* FTUIArticleCellViewNoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */; };
+		BF6C5845193D70A4009E0F6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5844193D70A4009E0F6D /* main.swift */; };
+		BF6C5847193D70A4009E0F6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5846193D70A4009E0F6D /* AppDelegate.swift */; };
+		BF6C5849193D70A4009E0F6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6C5848193D70A4009E0F6D /* Images.xcassets */; };
+		BF6C584C193D70A4009E0F6D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6C584A193D70A4009E0F6D /* MainMenu.xib */; };
+		BF6C5858193D70A5009E0F6D /* FreshSwiftViennaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5857193D70A5009E0F6D /* FreshSwiftViennaTests.swift */; };
+		BF6C5860193D7229009E0F6D /* FTUIMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C585F193D7229009E0F6D /* FTUIMainViewController.swift */; };
+		BF6C5862193D787B009E0F6D /* FTURLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5861193D787B009E0F6D /* FTURLLoader.swift */; };
+		BF6C5864193D8248009E0F6D /* FTRSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5863193D8248009E0F6D /* FTRSSItem.swift */; };
+		BF6C5866193D8450009E0F6D /* FTRSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */; };
 		BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D14FD192304E900258673 /* FTUITreeItem.m */; };
 		BF7D150919231F7700258673 /* Test.opml in Resources */ = {isa = PBXBuildFile; fileRef = BF7D150819231F7700258673 /* Test.opml */; };
 		BF7D150C19231F8C00258673 /* FTOPMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D150B19231F8C00258673 /* FTOPMLReader.m */; };
@@ -18,6 +27,13 @@
 		BF7D151619232DF200258673 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = BF7D151419232DF200258673 /* template.html */; };
 		BF89C51A1921B044001709E4 /* FTUIOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BF89C5191921B044001709E4 /* FTUIOutlineViewDataSource.m */; };
 		BF89C51D1921B09C001709E4 /* FTUIOutlineViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF89C51C1921B09C001709E4 /* FTUIOutlineViewItem.m */; };
+		BF91E091193EB07D008FF3FB /* FTOPMLReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91E090193EB07D008FF3FB /* FTOPMLReader.swift */; };
+		BF91E093193EB1C8008FF3FB /* FTOPMLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91E092193EB1C8008FF3FB /* FTOPMLItem.swift */; };
+		BF91E095193EB499008FF3FB /* FTUITreeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91E094193EB499008FF3FB /* FTUITreeItem.swift */; };
+		BF91E096193EB75D008FF3FB /* stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = BF7D151319232DF200258673 /* stylesheet.css */; };
+		BF91E097193EB75D008FF3FB /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = BF7D151419232DF200258673 /* template.html */; };
+		BF91E098193EB75D008FF3FB /* Test.opml in Resources */ = {isa = PBXBuildFile; fileRef = BF7D150819231F7700258673 /* Test.opml */; };
+		BF91E09A193EC1E8008FF3FB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF91E099193EC1E8008FF3FB /* WebKit.framework */; };
 		BFDB4A7D191F184900C46EAF /* FTUrlLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A7C191F184900C46EAF /* FTUrlLoader.m */; };
 		BFDB4A81191F208700C46EAF /* FTRSSChannelAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A80191F208700C46EAF /* FTRSSChannelAttributes.m */; };
 		BFDB4A84191F285800C46EAF /* FTRSSItemAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A83191F285800C46EAF /* FTRSSItemAttributes.m */; };
@@ -37,9 +53,21 @@
 		BFF5D618191C70CD00301531 /* FreshViennaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D617191C70CD00301531 /* FreshViennaTests.m */; };
 		BFF6158B192AFE060098FA50 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF6158A192AFE060098FA50 /* ImageAndTextCell.m */; };
 		BFF6158E192B03030098FA50 /* BaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF6158D192B03030098FA50 /* BaseNode.m */; };
+		BFFFF61B19400B2F005B372F /* FTUIChannelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF61A19400B2F005B372F /* FTUIChannelDelegate.swift */; };
+		BFFFF61D19400F46005B372F /* FTUIArticleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF61C19400F46005B372F /* FTUIArticleCellView.swift */; };
+		BFFFF61F194012E7005B372F /* FTUIArticleCellViewNoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF61E194012E7005B372F /* FTUIArticleCellViewNoImageView.swift */; };
+		BFFFF62119401BC1005B372F /* FTUIOutlineViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF62019401BC1005B372F /* FTUIOutlineViewDataSource.swift */; };
+		BFFFF62319401D72005B372F /* FTImageAndTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF62219401D72005B372F /* FTImageAndTextCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BF6C5852193D70A5009E0F6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFF5D5E2191C70CC00301531 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF6C583F193D70A4009E0F6D;
+			remoteInfo = FreshSwiftVienna;
+		};
 		BFF5D60F191C70CC00301531 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFF5D5E2191C70CC00301531 /* Project object */;
@@ -54,19 +82,36 @@
 		BF223935192457FC0034F22E /* FTUIArticleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellView.m; sourceTree = "<group>"; };
 		BF369DEF19284AF500498E2D /* FTUIArticleCellViewNoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIArticleCellViewNoImageView.h; sourceTree = "<group>"; };
 		BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellViewNoImageView.m; sourceTree = "<group>"; };
+		BF6C5840193D70A4009E0F6D /* FreshSwiftVienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshSwiftVienna.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6C5843193D70A4009E0F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF6C5844193D70A4009E0F6D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BF6C5846193D70A4009E0F6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF6C5848193D70A4009E0F6D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF6C584B193D70A4009E0F6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF6C5851193D70A5009E0F6D /* FreshSwiftViennaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreshSwiftViennaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6C5856193D70A5009E0F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF6C5857193D70A5009E0F6D /* FreshSwiftViennaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreshSwiftViennaTests.swift; sourceTree = "<group>"; };
+		BF6C585F193D7229009E0F6D /* FTUIMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIMainViewController.swift; sourceTree = "<group>"; };
+		BF6C5861193D787B009E0F6D /* FTURLLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTURLLoader.swift; sourceTree = "<group>"; };
+		BF6C5863193D8248009E0F6D /* FTRSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTRSSItem.swift; sourceTree = "<group>"; };
+		BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTRSSFeed.swift; sourceTree = "<group>"; };
 		BF7D14FC192304E800258673 /* FTUITreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUITreeItem.h; sourceTree = "<group>"; };
 		BF7D14FD192304E900258673 /* FTUITreeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUITreeItem.m; sourceTree = "<group>"; };
-		BF7D150819231F7700258673 /* Test.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Test.opml; sourceTree = "<group>"; };
+		BF7D150819231F7700258673 /* Test.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Test.opml; path = ../FreshViennaTests/Test.opml; sourceTree = "<group>"; };
 		BF7D150A19231F8C00258673 /* FTOPMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTOPMLReader.h; sourceTree = "<group>"; };
 		BF7D150B19231F8C00258673 /* FTOPMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTOPMLReader.m; sourceTree = "<group>"; };
 		BF7D150E192322DD00258673 /* FTOPMLItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTOPMLItem.h; sourceTree = "<group>"; };
 		BF7D150F192322DD00258673 /* FTOPMLItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTOPMLItem.m; sourceTree = "<group>"; };
-		BF7D151319232DF200258673 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = stylesheet.css; sourceTree = "<group>"; };
-		BF7D151419232DF200258673 /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
+		BF7D151319232DF200258673 /* stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = stylesheet.css; path = ../FreshVienna/stylesheet.css; sourceTree = "<group>"; };
+		BF7D151419232DF200258673 /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = template.html; path = ../FreshVienna/template.html; sourceTree = "<group>"; };
 		BF89C5181921B044001709E4 /* FTUIOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIOutlineViewDataSource.h; sourceTree = "<group>"; };
 		BF89C5191921B044001709E4 /* FTUIOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIOutlineViewDataSource.m; sourceTree = "<group>"; };
 		BF89C51B1921B09C001709E4 /* FTUIOutlineViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIOutlineViewItem.h; sourceTree = "<group>"; };
 		BF89C51C1921B09C001709E4 /* FTUIOutlineViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIOutlineViewItem.m; sourceTree = "<group>"; };
+		BF91E090193EB07D008FF3FB /* FTOPMLReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTOPMLReader.swift; sourceTree = "<group>"; };
+		BF91E092193EB1C8008FF3FB /* FTOPMLItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTOPMLItem.swift; sourceTree = "<group>"; };
+		BF91E094193EB499008FF3FB /* FTUITreeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUITreeItem.swift; sourceTree = "<group>"; };
+		BF91E099193EC1E8008FF3FB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BFDB4A7B191F184900C46EAF /* FTUrlLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUrlLoader.h; sourceTree = "<group>"; };
 		BFDB4A7C191F184900C46EAF /* FTUrlLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUrlLoader.m; sourceTree = "<group>"; };
 		BFDB4A7F191F208700C46EAF /* FTRSSChannelAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRSSChannelAttributes.h; sourceTree = "<group>"; };
@@ -102,9 +147,29 @@
 		BFF6158A192AFE060098FA50 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		BFF6158C192B03030098FA50 /* BaseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNode.h; sourceTree = "<group>"; };
 		BFF6158D192B03030098FA50 /* BaseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNode.m; sourceTree = "<group>"; };
+		BFFFF61A19400B2F005B372F /* FTUIChannelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIChannelDelegate.swift; sourceTree = "<group>"; };
+		BFFFF61C19400F46005B372F /* FTUIArticleCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIArticleCellView.swift; sourceTree = "<group>"; };
+		BFFFF61E194012E7005B372F /* FTUIArticleCellViewNoImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIArticleCellViewNoImageView.swift; sourceTree = "<group>"; };
+		BFFFF62019401BC1005B372F /* FTUIOutlineViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIOutlineViewDataSource.swift; sourceTree = "<group>"; };
+		BFFFF62219401D72005B372F /* FTImageAndTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTImageAndTextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF6C583D193D70A4009E0F6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF91E09A193EC1E8008FF3FB /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF6C584E193D70A5009E0F6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFF5D5E7191C70CC00301531 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,6 +206,74 @@
 			children = (
 			);
 			name = WebView;
+			sourceTree = "<group>";
+		};
+		BF4DC4AB194168C70089132C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BF6C5861193D787B009E0F6D /* FTURLLoader.swift */,
+				BF6C5863193D8248009E0F6D /* FTRSSItem.swift */,
+				BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */,
+				BF91E090193EB07D008FF3FB /* FTOPMLReader.swift */,
+				BF91E092193EB1C8008FF3FB /* FTOPMLItem.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		BF4DC4AC194168E70089132C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BF6C585F193D7229009E0F6D /* FTUIMainViewController.swift */,
+				BF91E094193EB499008FF3FB /* FTUITreeItem.swift */,
+				BFFFF61A19400B2F005B372F /* FTUIChannelDelegate.swift */,
+				BFFFF61C19400F46005B372F /* FTUIArticleCellView.swift */,
+				BFFFF61E194012E7005B372F /* FTUIArticleCellViewNoImageView.swift */,
+				BFFFF62019401BC1005B372F /* FTUIOutlineViewDataSource.swift */,
+				BFFFF62219401D72005B372F /* FTImageAndTextCell.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		BF6C5841193D70A4009E0F6D /* FreshSwiftVienna */ = {
+			isa = PBXGroup;
+			children = (
+				BF6C5846193D70A4009E0F6D /* AppDelegate.swift */,
+				BF4DC4AC194168E70089132C /* UI */,
+				BF4DC4AB194168C70089132C /* Core */,
+				BF6C5848193D70A4009E0F6D /* Images.xcassets */,
+				BF6C584A193D70A4009E0F6D /* MainMenu.xib */,
+				BF6C5842193D70A4009E0F6D /* Supporting Files */,
+			);
+			path = FreshSwiftVienna;
+			sourceTree = "<group>";
+		};
+		BF6C5842193D70A4009E0F6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF7D151319232DF200258673 /* stylesheet.css */,
+				BF7D151419232DF200258673 /* template.html */,
+				BF7D150819231F7700258673 /* Test.opml */,
+				BF6C5843193D70A4009E0F6D /* Info.plist */,
+				BF6C5844193D70A4009E0F6D /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF6C5854193D70A5009E0F6D /* FreshSwiftViennaTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF6C5857193D70A5009E0F6D /* FreshSwiftViennaTests.swift */,
+				BF6C5855193D70A5009E0F6D /* Supporting Files */,
+			);
+			path = FreshSwiftViennaTests;
+			sourceTree = "<group>";
+		};
+		BF6C5855193D70A5009E0F6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF6C5856193D70A5009E0F6D /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BF7D1504192316AE00258673 /* OutlineView */ = {
@@ -214,6 +347,8 @@
 			children = (
 				BFF5D5F3191C70CC00301531 /* FreshVienna */,
 				BFF5D611191C70CC00301531 /* FreshViennaTests */,
+				BF6C5841193D70A4009E0F6D /* FreshSwiftVienna */,
+				BF6C5854193D70A5009E0F6D /* FreshSwiftViennaTests */,
 				BFF5D5EC191C70CC00301531 /* Frameworks */,
 				BFF5D5EB191C70CC00301531 /* Products */,
 			);
@@ -224,6 +359,8 @@
 			children = (
 				BFF5D5EA191C70CC00301531 /* FreshVienna.app */,
 				BFF5D60B191C70CC00301531 /* FreshViennaTests.xctest */,
+				BF6C5840193D70A4009E0F6D /* FreshSwiftVienna.app */,
+				BF6C5851193D70A5009E0F6D /* FreshSwiftViennaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +368,7 @@
 		BFF5D5EC191C70CC00301531 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF91E099193EC1E8008FF3FB /* WebKit.framework */,
 				BFF5D5ED191C70CC00301531 /* Cocoa.framework */,
 				BFF5D60C191C70CC00301531 /* XCTest.framework */,
 				BFF5D5EF191C70CC00301531 /* Other Frameworks */,
@@ -265,8 +403,6 @@
 		BFF5D5F4191C70CC00301531 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF7D151319232DF200258673 /* stylesheet.css */,
-				BF7D151419232DF200258673 /* template.html */,
 				BFF5D5F5191C70CC00301531 /* FreshVienna-Info.plist */,
 				BFF5D5F6191C70CC00301531 /* InfoPlist.strings */,
 				BFF5D5F9191C70CC00301531 /* main.m */,
@@ -288,7 +424,6 @@
 		BFF5D612191C70CC00301531 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF7D150819231F7700258673 /* Test.opml */,
 				BFF5D613191C70CC00301531 /* FreshViennaTests-Info.plist */,
 				BFF5D614191C70CC00301531 /* InfoPlist.strings */,
 			);
@@ -298,6 +433,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF6C583F193D70A4009E0F6D /* FreshSwiftVienna */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF6C5859193D70A5009E0F6D /* Build configuration list for PBXNativeTarget "FreshSwiftVienna" */;
+			buildPhases = (
+				BF6C583C193D70A4009E0F6D /* Sources */,
+				BF6C583D193D70A4009E0F6D /* Frameworks */,
+				BF6C583E193D70A4009E0F6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FreshSwiftVienna;
+			productName = FreshSwiftVienna;
+			productReference = BF6C5840193D70A4009E0F6D /* FreshSwiftVienna.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF6C5850193D70A5009E0F6D /* FreshSwiftViennaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF6C585C193D70A5009E0F6D /* Build configuration list for PBXNativeTarget "FreshSwiftViennaTests" */;
+			buildPhases = (
+				BF6C584D193D70A5009E0F6D /* Sources */,
+				BF6C584E193D70A5009E0F6D /* Frameworks */,
+				BF6C584F193D70A5009E0F6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF6C5853193D70A5009E0F6D /* PBXTargetDependency */,
+			);
+			name = FreshSwiftViennaTests;
+			productName = FreshSwiftViennaTests;
+			productReference = BF6C5851193D70A5009E0F6D /* FreshSwiftViennaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BFF5D5E9191C70CC00301531 /* FreshVienna */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFF5D61B191C70CD00301531 /* Build configuration list for PBXNativeTarget "FreshVienna" */;
@@ -343,6 +513,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Thibaut;
 				TargetAttributes = {
+					BF6C583F193D70A4009E0F6D = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					BF6C5850193D70A5009E0F6D = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = BF6C583F193D70A4009E0F6D;
+					};
 					BFF5D60A191C70CC00301531 = {
 						TestTargetID = BFF5D5E9191C70CC00301531;
 					};
@@ -363,11 +540,32 @@
 			targets = (
 				BFF5D5E9191C70CC00301531 /* FreshVienna */,
 				BFF5D60A191C70CC00301531 /* FreshViennaTests */,
+				BF6C583F193D70A4009E0F6D /* FreshSwiftVienna */,
+				BF6C5850193D70A5009E0F6D /* FreshSwiftViennaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF6C583E193D70A4009E0F6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF91E096193EB75D008FF3FB /* stylesheet.css in Resources */,
+				BF91E097193EB75D008FF3FB /* template.html in Resources */,
+				BF91E098193EB75D008FF3FB /* Test.opml in Resources */,
+				BF6C5849193D70A4009E0F6D /* Images.xcassets in Resources */,
+				BF6C584C193D70A4009E0F6D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF6C584F193D70A5009E0F6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFF5D5E8191C70CC00301531 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,6 +592,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BF6C583C193D70A4009E0F6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6C5866193D8450009E0F6D /* FTRSSFeed.swift in Sources */,
+				BF91E091193EB07D008FF3FB /* FTOPMLReader.swift in Sources */,
+				BFFFF62319401D72005B372F /* FTImageAndTextCell.swift in Sources */,
+				BF6C5862193D787B009E0F6D /* FTURLLoader.swift in Sources */,
+				BF6C5860193D7229009E0F6D /* FTUIMainViewController.swift in Sources */,
+				BF91E093193EB1C8008FF3FB /* FTOPMLItem.swift in Sources */,
+				BFFFF61F194012E7005B372F /* FTUIArticleCellViewNoImageView.swift in Sources */,
+				BF6C5864193D8248009E0F6D /* FTRSSItem.swift in Sources */,
+				BFFFF61B19400B2F005B372F /* FTUIChannelDelegate.swift in Sources */,
+				BFFFF62119401BC1005B372F /* FTUIOutlineViewDataSource.swift in Sources */,
+				BF6C5847193D70A4009E0F6D /* AppDelegate.swift in Sources */,
+				BF91E095193EB499008FF3FB /* FTUITreeItem.swift in Sources */,
+				BFFFF61D19400F46005B372F /* FTUIArticleCellView.swift in Sources */,
+				BF6C5845193D70A4009E0F6D /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF6C584D193D70A5009E0F6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6C5858193D70A5009E0F6D /* FreshSwiftViennaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFF5D5E6191C70CC00301531 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,6 +656,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BF6C5853193D70A5009E0F6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF6C583F193D70A4009E0F6D /* FreshSwiftVienna */;
+			targetProxy = BF6C5852193D70A5009E0F6D /* PBXContainerItemProxy */;
+		};
 		BFF5D610191C70CC00301531 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BFF5D5E9191C70CC00301531 /* FreshVienna */;
@@ -437,6 +669,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BF6C584A193D70A4009E0F6D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF6C584B193D70A4009E0F6D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		BFF5D5F6191C70CC00301531 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -472,6 +712,83 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BF6C585A193D70A5009E0F6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FreshSwiftVienna/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF6C585B193D70A5009E0F6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = FreshSwiftVienna/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BF6C585D193D70A5009E0F6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FreshSwiftVienna.app/Contents/MacOS/FreshSwiftVienna";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FreshSwiftViennaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		BF6C585E193D70A5009E0F6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FreshSwiftVienna.app/Contents/MacOS/FreshSwiftVienna";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FreshSwiftViennaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
 		BFF5D619191C70CD00301531 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -546,6 +863,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FreshVienna/FreshVienna-Prefix.pch";
@@ -555,8 +873,11 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "FreshVienna/FreshVienna-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FreshVienna/FreshVienna-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -565,6 +886,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FreshVienna/FreshVienna-Prefix.pch";
@@ -574,8 +896,10 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "FreshVienna/FreshVienna-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FreshVienna/FreshVienna-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -623,6 +947,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF6C5859193D70A5009E0F6D /* Build configuration list for PBXNativeTarget "FreshSwiftVienna" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF6C585A193D70A5009E0F6D /* Debug */,
+				BF6C585B193D70A5009E0F6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF6C585C193D70A5009E0F6D /* Build configuration list for PBXNativeTarget "FreshSwiftViennaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF6C585D193D70A5009E0F6D /* Debug */,
+				BF6C585E193D70A5009E0F6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BFF5D5E5191C70CC00301531 /* Build configuration list for PBXProject "FreshVienna" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

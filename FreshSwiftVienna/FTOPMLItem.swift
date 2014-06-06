@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class FTOPMLItem
+{
+    var xmlUrl:String?;
+    var title:String?;
+}

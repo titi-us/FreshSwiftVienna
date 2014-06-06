@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class FTUITreeItem : NSObject
+{
+    var loader:FTURLLoader;
+    var item:FTOPMLItem;
+
+    init(loader aLoader:FTURLLoader, item anItem:FTOPMLItem)
+    {
+        loader = aLoader;
+        item = anItem;
+    }
+}

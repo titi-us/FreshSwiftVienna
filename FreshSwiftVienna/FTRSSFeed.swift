@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class FTRSSFeed
+{
+    var title = "";
+    var link = "";
+    var description = "";
+    var language = "";
+    var copyright = "";
+    var lastBuildDate = "";
+    var generator = "";
+    var docs = "";
+
+}

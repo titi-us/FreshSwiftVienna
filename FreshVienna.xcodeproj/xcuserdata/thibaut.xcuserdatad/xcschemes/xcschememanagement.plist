@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FreshSwiftVienna.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>FreshVienna.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>BF6C583F193D70A4009E0F6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF6C5850193D70A5009E0F6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BFF5D5E9191C70CC00301531</key>
 		<dict>
 			<key>primary</key>
