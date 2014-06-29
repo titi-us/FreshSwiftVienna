@@ -10,6 +10,19 @@ import Foundation
 
 class FTOPMLItem
 {
-    var xmlUrl:String?;
-    var title:String?;
+    var xmlUrl:String;
+    var title:String;
+    
+    init(xmlUrl url:String, title aTitle:String?)
+    {
+        xmlUrl = url;
+        if let myTitle = aTitle
+        {
+            title = myTitle;
+        } else
+        {
+            title = xmlUrl;
+        }
+    }
+    
 }

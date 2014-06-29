@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF07ED76194411AA0053983E /* FTURLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF07ED75194411AA0053983E /* FTURLOperation.swift */; };
 		BF223936192457FC0034F22E /* FTUIArticleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF223935192457FC0034F22E /* FTUIArticleCellView.m */; };
 		BF369DF119284AF500498E2D /* FTUIArticleCellViewNoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */; };
 		BF6C5845193D70A4009E0F6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5844193D70A4009E0F6D /* main.swift */; };
@@ -18,6 +19,8 @@
 		BF6C5862193D787B009E0F6D /* FTURLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5861193D787B009E0F6D /* FTURLLoader.swift */; };
 		BF6C5864193D8248009E0F6D /* FTRSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5863193D8248009E0F6D /* FTRSSItem.swift */; };
 		BF6C5866193D8450009E0F6D /* FTRSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */; };
+		BF7143B719450832007DCE59 /* FTUIWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7143B619450832007DCE59 /* FTUIWebViewDelegate.swift */; };
+		BF7143BB19450B47007DCE59 /* FTUISplitViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7143BA19450B47007DCE59 /* FTUISplitViewDelegate.swift */; };
 		BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D14FD192304E900258673 /* FTUITreeItem.m */; };
 		BF7D150919231F7700258673 /* Test.opml in Resources */ = {isa = PBXBuildFile; fileRef = BF7D150819231F7700258673 /* Test.opml */; };
 		BF7D150C19231F8C00258673 /* FTOPMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D150B19231F8C00258673 /* FTOPMLReader.m */; };
@@ -78,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF07ED75194411AA0053983E /* FTURLOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTURLOperation.swift; sourceTree = "<group>"; };
 		BF223934192457FC0034F22E /* FTUIArticleCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIArticleCellView.h; sourceTree = "<group>"; };
 		BF223935192457FC0034F22E /* FTUIArticleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellView.m; sourceTree = "<group>"; };
 		BF369DEF19284AF500498E2D /* FTUIArticleCellViewNoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIArticleCellViewNoImageView.h; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 		BF6C5861193D787B009E0F6D /* FTURLLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTURLLoader.swift; sourceTree = "<group>"; };
 		BF6C5863193D8248009E0F6D /* FTRSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTRSSItem.swift; sourceTree = "<group>"; };
 		BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTRSSFeed.swift; sourceTree = "<group>"; };
+		BF7143B619450832007DCE59 /* FTUIWebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIWebViewDelegate.swift; sourceTree = "<group>"; };
+		BF7143BA19450B47007DCE59 /* FTUISplitViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUISplitViewDelegate.swift; sourceTree = "<group>"; };
 		BF7D14FC192304E800258673 /* FTUITreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUITreeItem.h; sourceTree = "<group>"; };
 		BF7D14FD192304E900258673 /* FTUITreeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUITreeItem.m; sourceTree = "<group>"; };
 		BF7D150819231F7700258673 /* Test.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Test.opml; path = ../FreshViennaTests/Test.opml; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6C5861193D787B009E0F6D /* FTURLLoader.swift */,
+				BF07ED75194411AA0053983E /* FTURLOperation.swift */,
 				BF6C5863193D8248009E0F6D /* FTRSSItem.swift */,
 				BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */,
 				BF91E090193EB07D008FF3FB /* FTOPMLReader.swift */,
@@ -225,6 +232,8 @@
 			children = (
 				BF6C585F193D7229009E0F6D /* FTUIMainViewController.swift */,
 				BF91E094193EB499008FF3FB /* FTUITreeItem.swift */,
+				BF7143BA19450B47007DCE59 /* FTUISplitViewDelegate.swift */,
+				BF7143B619450832007DCE59 /* FTUIWebViewDelegate.swift */,
 				BFFFF61A19400B2F005B372F /* FTUIChannelDelegate.swift */,
 				BFFFF61C19400F46005B372F /* FTUIArticleCellView.swift */,
 				BFFFF61E194012E7005B372F /* FTUIArticleCellViewNoImageView.swift */,
@@ -596,11 +605,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7143B719450832007DCE59 /* FTUIWebViewDelegate.swift in Sources */,
 				BF6C5866193D8450009E0F6D /* FTRSSFeed.swift in Sources */,
 				BF91E091193EB07D008FF3FB /* FTOPMLReader.swift in Sources */,
 				BFFFF62319401D72005B372F /* FTImageAndTextCell.swift in Sources */,
 				BF6C5862193D787B009E0F6D /* FTURLLoader.swift in Sources */,
 				BF6C5860193D7229009E0F6D /* FTUIMainViewController.swift in Sources */,
+				BF7143BB19450B47007DCE59 /* FTUISplitViewDelegate.swift in Sources */,
 				BF91E093193EB1C8008FF3FB /* FTOPMLItem.swift in Sources */,
 				BFFFF61F194012E7005B372F /* FTUIArticleCellViewNoImageView.swift in Sources */,
 				BF6C5864193D8248009E0F6D /* FTRSSItem.swift in Sources */,
@@ -608,6 +619,7 @@
 				BFFFF62119401BC1005B372F /* FTUIOutlineViewDataSource.swift in Sources */,
 				BF6C5847193D70A4009E0F6D /* AppDelegate.swift in Sources */,
 				BF91E095193EB499008FF3FB /* FTUITreeItem.swift in Sources */,
+				BF07ED76194411AA0053983E /* FTURLOperation.swift in Sources */,
 				BFFFF61D19400F46005B372F /* FTUIArticleCellView.swift in Sources */,
 				BF6C5845193D70A4009E0F6D /* main.swift in Sources */,
 			);

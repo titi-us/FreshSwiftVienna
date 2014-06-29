@@ -33,9 +33,7 @@ class FTOPMLReader: NSObject, NSXMLParserDelegate
         {
             if attributeDict.objectForKey("xmlUrl")
             {
-                var item = FTOPMLItem();
-                item.xmlUrl = attributeDict.objectForKey("xmlUrl") as? String;
-                item.title = attributeDict.objectForKey("text") ? attributeDict.objectForKey("text") as? String : item.xmlUrl;
+                var item = FTOPMLItem(xmlUrl: attributeDict.objectForKey("xmlUrl") as String, title:attributeDict.objectForKey("text") as? String);
                 loadedUrls.append(item);
             }
         }

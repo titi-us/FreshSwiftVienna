@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FreshSwiftVienna.FTUIMainViewController.webView (FreshSwiftVienna.FTUIMainViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.WebView&gt;, decidePolicyForNavigationAction : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSDictionary&gt;, request : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSURLRequest&gt;, frame : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.WebFrame&gt;, decisionListener : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.WebPolicyDecisionListener&gt;) -&gt; ():FTUIMainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.URL">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

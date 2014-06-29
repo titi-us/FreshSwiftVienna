@@ -71,11 +71,12 @@ class FTUIChannelDelegate : NSObject, NSTableViewDataSource, NSTableViewDelegate
         view.title(item.title);
         view.author(feedItem!.title);
         view.pubDate(item.pubDate);
+        view.favicon(feedItem!.faviconImage);
     }
     
     func setupCellWithImage(view:FTUIArticleCellView, withItem item:FTRSSItem)
     {
-        view.imageUrl(item.imageUrl);
+        view.imageUrl(item.imageUrl!);
         view.title(item.title);
         view.author(feedItem!.title);
         view.pubDate(item.pubDate);

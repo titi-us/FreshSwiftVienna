@@ -18,17 +18,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         println("Start");
         
-        var mainViewController = FTUIMainViewController();
+        var mainViewController = FTUIMainViewController(nibName:nil, bundle:nil);
+        // TODO, do that if the size is default;
+//        var frame = window.frame;
+//        frame.size.width = 1400;
         
-        var frame = window.frame;
-        frame.size.width = 1024;
+//        var currentHeight = frame.size.height;
+//        frame.size.height = 800;
         
-        var currentHeight = frame.size.height;
-        frame.size.height = 800;
-        
-        frame.origin.y -= (800 - currentHeight);
-        window.setFrame(frame, display: true);
+//        frame.origin.y -= (800 - currentHeight);
+//        window.setFrame(frame, display: true);
         window.contentView = mainViewController.view;
+        window.representedFilename = "MainWindow";
+        
+      
+        if let control : NSWindowController = window.windowController() as? NSWindowController
+        {
+            control.shouldCascadeWindows = false;
+        }
+                
         window.setFrameAutosaveName(window.representedFilename);
         
     }

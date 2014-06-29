@@ -11,7 +11,7 @@ import Foundation
 class FTRSSItem
 {
     var title:String = "";
-    var link:String = "";
+    var link:String = "http://www.google.com";
     var comments:String = "";
     var description:String = "" {
     willSet(newDescription) {
@@ -23,12 +23,25 @@ class FTRSSItem
             var matches:NSTextCheckingResult[] = detector.matchesInString(newDescription, options: NSMatchingOptions.ReportCompletion, range: range) as NSTextCheckingResult[];
             
             for match in matches {
+                
+                
                 if (match.resultType.value == NSTextCheckingType.Link.value) {
                     var url:NSURL = match.URL;
-                    if (url.path?.hasSuffix("jpg") || url.path?.hasSuffix("png"))
+                    
+                    if let myPath = url.path
                     {
-                        imageUrl = url;
-                        break;
+                        var ranges:Range<String.Index> = myPath.rangeOfString("twitter", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil, locale: nil);
+
+                        if (!ranges.isEmpty)
+                        {
+                            break;
+                        }
+                        
+                        if ((myPath.hasSuffix(".gif") || myPath.hasSuffix(".jpg") || myPath.hasSuffix(".png")))
+                        {
+                            imageUrl = url;
+                            break;
+                        }
                     }
                 }
             }
@@ -39,7 +52,6 @@ class FTRSSItem
     var pubDate:String = "";
     var guid:String = "";
     var author:String = "";
-    var imageUrl:NSURL = NSURL();
-    
+    var imageUrl:NSURL? = nil;
 }
 

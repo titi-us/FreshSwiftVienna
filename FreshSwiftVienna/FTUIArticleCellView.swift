@@ -28,7 +28,7 @@ class FTUIArticleCellView : NSTableCellView
     {
         myImageView = NSImageView(frame:CGRectMake(0, 0, self.bounds.size.width, 200));
         titleTextfield = NSTextField(frame:CGRectMake(10, 210, self.bounds.size.width - 20, 40));
-        authorTextfield = NSTextField(frame:CGRectMake(0, 280, self.bounds.size.width/2, 40));
+        authorTextfield = NSTextField(frame:CGRectMake(10, 280, self.bounds.size.width/2, 40));
         dateTextfield = NSTextField(frame:CGRectMake(self.bounds.size.width/2, 280, self.bounds.size.width/2, 40));
         
         
@@ -70,14 +70,34 @@ class FTUIArticleCellView : NSTableCellView
             {
                 myImage = nil;
             }
-            myImage = NSImage(byReferencingURL: value)
-            var targetImage:NSImage = FTUIArticleCellView.scaleImageToFillView(myImageView, fromImage:myImage!);
-            myImage = targetImage;
+//            myImage = NSImage(byReferencingURL: value)
+//            var targetImage:NSImage = FTUIArticleCellView.scaleImageToFillView(myImageView, fromImage:myImage!);
+//            myImage = targetImage;
+            
+             FTUIArticleCellView.loadImageAsync(value, container: &myImage, fillViewContainer: myImageView)
+            
+            
         } else
         {
             myImage = nil;
         }
         myImageView.image = myImage;
+    }
+    
+    
+    class func loadImageAsync(imageUrl:NSURL, inout container:NSImage?, fillViewContainer:NSImageView)
+    {
+        var request = NSURLRequest(URL: imageUrl)
+        let completionBlock: (NSURLResponse!, NSData!, NSError!) -> Void = { notification,data,error in
+            if !error {
+                // TODO, check that url is the same!
+                var image = NSImage(data:data);
+                var targetImage:NSImage = FTUIArticleCellView.scaleImageToFillView(fillViewContainer, fromImage:image);
+                container = targetImage;
+                fillViewContainer.image = container;
+            }
+        };
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: completionBlock);
     }
     
     

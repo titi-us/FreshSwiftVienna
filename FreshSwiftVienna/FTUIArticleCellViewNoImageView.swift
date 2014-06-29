@@ -14,7 +14,7 @@ class FTUIArticleCellViewNoImageView: NSTableCellView
     var titleTextfield:NSTextField = NSTextField();
     var authorTextfield:NSTextField = NSTextField();
     var dateTextfield:NSTextField = NSTextField();
-
+    var faviconView:NSImageView = NSImageView();
     
     init(frame frameRect: NSRect)
     {
@@ -24,17 +24,21 @@ class FTUIArticleCellViewNoImageView: NSTableCellView
     
     func initCell()
     {
-        titleTextfield = NSTextField(frame:CGRectMake(10, 10, self.bounds.size.width - 20, 40));
-        authorTextfield = NSTextField(frame:CGRectMake(0, 80, self.bounds.size.width/2, 40));
+        titleTextfield = NSTextField(frame:CGRectMake(10, 10, self.bounds.size.width - 20, 70));
+        authorTextfield = NSTextField(frame:CGRectMake(10, 80, self.bounds.size.width/2, 40));
         dateTextfield = NSTextField(frame:CGRectMake(self.bounds.size.width/2, 80, self.bounds.size.width/2, 40));
-        
+        faviconView = NSImageView(frame:CGRectMake(10, 80, 30, 30));
+
         
         setupTextField(titleTextfield);
         setupTextField(authorTextfield);
         setupTextField(dateTextfield);
         
-        titleTextfield.font = NSFont.boldSystemFontOfSize(18
-        );
+        addSubview(faviconView);
+
+        
+        
+        titleTextfield.font = NSFont.boldSystemFontOfSize(18);
         dateTextfield.textColor = NSColor(calibratedRed: 173/255.0, green: 178/255.0, blue: 187/255.0, alpha: 1);
         
         autoresizesSubviews = true;
@@ -75,5 +79,18 @@ class FTUIArticleCellViewNoImageView: NSTableCellView
         self.dateTextfield.stringValue = value;
     }
 
+    func favicon(image:NSImage?)
+    {
+        if let faviconImage = image
+        {
+            faviconView.image = faviconImage;
+            authorTextfield.hidden = true;
+        } else
+        {
+            faviconView.image = nil;
+            authorTextfield.hidden = false;
+        }
+
+    }
 
 }

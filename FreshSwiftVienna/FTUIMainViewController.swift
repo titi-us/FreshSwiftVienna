@@ -10,36 +10,34 @@ import Foundation
 import Cocoa
 import WebKit
 
-class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSSplitViewDelegate, NSOutlineViewDelegate
+class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSOutlineViewDelegate
 {
     
     // delegates
     var channelDelegate:FTUIChannelDelegate;
+    var webViewDelegate:FTUIWebViewDelegate;
+    var splitViewDelegate:FTUISplitViewDelegate;
     
     // data
     var urls:FTOPMLItem[];
     var loaders:FTURLLoader[];
     var outlineDataSource:FTUIOutlineViewDataSource;
-    
+    var treeArray:FTUITreeItem[];
+    let queue:NSOperationQueue;
     
     //views
     var splitView:NSSplitView;
     var tableView:NSTableView;
     var tableContainer:NSScrollView;
-    var webContainer:NSScrollView;
     var webView:WebView;
+    var webContainer:NSScrollView;
     var outlineView:NSOutlineView;
-    
-    // temp views
-    var newTableContainer:NSScrollView;
-    
+    var outlineContainer:NSScrollView;
     
     // WebView HTML and CSS
     var htmlTemplate:String?;
     var cssTemplate:String?;
     
-    var treeArray:FTUITreeItem[];
-
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
         splitView = NSSplitView();
@@ -47,33 +45,33 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         tableContainer = NSScrollView();
         webContainer = NSScrollView();
         outlineView = NSOutlineView();
-        newTableContainer = NSScrollView();
+        outlineContainer = NSScrollView();
         webView = WebView();
         treeArray = [];
         loaders = [];
-
+        urls = [];
+        queue = NSOperationQueue();
+        channelDelegate = FTUIChannelDelegate();
+        outlineDataSource = FTUIOutlineViewDataSource();
+        webViewDelegate = FTUIWebViewDelegate();
+        splitViewDelegate = FTUISplitViewDelegate();
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
+        loadRessources();
+    }
+    
+    
+    func loadRessources()
+    {
         var reader:FTOPMLReader = FTOPMLReader();
+        var error:NSError?;
         let mainBundle = NSBundle.mainBundle();
         
         if let filePath:String = mainBundle.pathForResource("Test", ofType: "opml")
         {
             urls = reader.loadUrl(filePath);
-        } else
-        {
-            urls = [];
         }
         
-        
-        for url in urls {
-            var urlLoader:FTURLLoader = FTURLLoader(urlString:url.xmlUrl);
-            loaders.append(urlLoader);
-            treeArray.append(FTUITreeItem(loader: urlLoader, item: url));
-        }
-        
-        
-
-        
-        var error:NSError?;
+//        urls = [FTOPMLItem(xmlUrl:"https://news.ycombinator.com/rss", title:"Hacker news")];
         
         
         if let htmlTemplatePath:String = mainBundle.pathForResource("template", ofType: "html")
@@ -90,27 +88,8 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         {
             cssTemplate = "";
         }
-        
-        
-        channelDelegate = FTUIChannelDelegate();
-        outlineDataSource = FTUIOutlineViewDataSource();
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    init(){
-        splitView = NSSplitView();
-        tableView = NSTableView();
-        tableContainer = NSScrollView();
-        webContainer = NSScrollView();
-        outlineView = NSOutlineView();
-        newTableContainer = NSScrollView();
-        webView = WebView();
-        treeArray = [];
-        loaders = [];
-        urls = [];
-        channelDelegate = FTUIChannelDelegate();
-        outlineDataSource = FTUIOutlineViewDataSource();
-        super.init();
+
+
     }
     
     override func loadView()
@@ -124,38 +103,25 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         
         var outlineFrame:CGRect = CGRect();
         var remainingFrame:CGRect = CGRect();
-        CGRectDivide(frame, &outlineFrame, &remainingFrame, 150, CGRectEdge.MinXEdge);
+        CGRectDivide(frame, &outlineFrame, &remainingFrame, 240, CGRectEdge.MinXEdge);
         
         let column:NSTableColumn = NSTableColumn(identifier:"1");
-        
-        
+
         // outline view
-        newTableContainer.frame = outlineFrame;
-        newTableContainer.autoresizingMask = NSAutoresizingMaskOptions.ViewHeightSizable;
-        
-        
-        outlineFrame.origin.y = -outlineFrame.origin.y;
-        outlineView.frame = outlineFrame;
-        
-        
-        outlineDataSource.data = treeArray;
-        outlineView.setDataSource(outlineDataSource);
+        setupOutlineView(&outlineFrame);
         outlineView.setDelegate(self);
         
         // set the first column's cells as `ImageAndTextCell`s
         var iatc:FTImageAndTextCell = FTImageAndTextCell();
         iatc.editable = false;
 
-        newTableContainer.documentView = outlineView;
+        outlineContainer.documentView = outlineView;
 
         outlineView.addTableColumn(column);
         outlineView.intercellSpacing = NSSizeFromCGSize(CGSizeMake(0, 0));
         (outlineView.tableColumns[0] as NSTableColumn).identifier = "name";
         (outlineView.tableColumns[0] as NSTableColumn).dataCell = iatc;
-        
-        
-        
-        
+        outlineView.headerView = nil;
         
         // table view
         
@@ -183,31 +149,31 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         webContainer.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable | NSAutoresizingMaskOptions.ViewHeightSizable;
         webView.frame = webContainer.frame;
         webView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable | NSAutoresizingMaskOptions.ViewHeightSizable;
-        
-        webView.policyDelegate = self;
+        webView.policyDelegate = webViewDelegate;
         webContainer.documentView = webView;
 
         
         tableView.reloadData();
         
-
-        
-        splitView.frame = frame;
-        splitView.delegate = self;
-        splitView.vertical = true;
-        splitView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable | NSAutoresizingMaskOptions.ViewHeightSizable;
-
-        splitView.addSubview(newTableContainer);
-        splitView.addSubview(tableContainer);
-        splitView.addSubview(webContainer);
-        splitView.dividerStyle = NSSplitViewDividerStyle.Thin;
-        splitView.adjustSubviews();
+        setupSplitView(frame);
         splitView.setPosition(outlineFrame.size.width, ofDividerAtIndex: 0);
         splitView.setPosition((remainingFrame.origin.x + remainingFrame.size.width/2), ofDividerAtIndex:1);
+
         
         self.view.addSubview(splitView);
         
+        queue.maxConcurrentOperationCount = 15;
         
+        for url in urls {
+            var urlLoader:FTURLLoader = FTURLLoader(urlPath:url.xmlUrl);
+            loaders.append(urlLoader);
+            var asyncLoadOperation = FTURLOperation(loader: urlLoader);
+            queue.addOperation(asyncLoadOperation);
+            treeArray.append(FTUITreeItem(loader: urlLoader, item: url));
+        }
+        
+        outlineDataSource.data = treeArray;
+        outlineView.setDataSource(outlineDataSource);
         
         
         let center:NSNotificationCenter = NSNotificationCenter.defaultCenter();
@@ -219,19 +185,65 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         };
         
         center.addObserverForName("rssItemClicked", object: nil, queue: nil, usingBlock: completionBlock);
-
         
         self.webView.frameLoadDelegate = self;
-        
-        let loadingCompletionBlock: (NSNotification!) -> Void = { notification in
-            self.outlineView.reloadData();
-        };
-        
-        center.addObserverForName("loading updated", object: nil, queue: nil, usingBlock:loadingCompletionBlock);
+        self.outlineView.reloadData();
 
+        var context:KVOContext = KVOContext();
+        queue.addObserver(self, forKeyPath: "operationCount", options: NSKeyValueObservingOptions.New, kvoContext: context);
 
     }
     
+    
+    func setupSplitView(frame:CGRect)
+    {
+        splitView.frame = frame;
+        splitView.delegate = splitViewDelegate;
+        splitView.vertical = true;
+        splitView.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable | NSAutoresizingMaskOptions.ViewHeightSizable;
+        
+        splitView.addSubview(outlineContainer);
+        splitView.addSubview(tableContainer);
+        splitView.addSubview(webContainer);
+        splitView.dividerStyle = NSSplitViewDividerStyle.Thin;
+        splitView.adjustSubviews();
+
+    }
+    
+    
+    func setupOutlineView(inout outlineFrame:CGRect)
+    {
+        outlineContainer.frame = outlineFrame;
+        outlineContainer.autoresizingMask = NSAutoresizingMaskOptions.ViewHeightSizable;
+        
+        outlineFrame.origin.y = -outlineFrame.origin.y;
+        outlineView.frame = outlineFrame;
+
+    }
+    
+    
+    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: NSDictionary!, context: CMutableVoidPointer)
+    {
+        let queueObject = object as NSOperationQueue;
+        
+        if queueObject == self.queue && keyPath == "operationCount"
+        {
+            if self.queue.operationCount == 0
+            {
+                println("queue has completed");
+                self.outlineView.reloadData();
+            } else
+            {
+                println("queue not done");
+            }
+        } else
+        {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context);
+        }
+    }
+    
+    
+
     
     
     /*******************************************************
@@ -240,6 +252,10 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
     *
     *******************************************************/
     
+    func outlineView(outlineView: NSOutlineView!, heightOfRowByItem item: AnyObject!) -> CGFloat
+    {
+        return 23;
+    }
     
     func outlineView(outlineView: NSOutlineView!, shouldSelectItem item: AnyObject!) -> Bool
     {
@@ -275,31 +291,6 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         (cell as NSTextFieldCell).textColor = NSColor.blackColor();
     }
     
-        
-    /*******************************************************
-    *
-    * SPLIT-VIEW DELEGATE
-    *
-    *******************************************************/
-
-    func splitView(splitView: NSSplitView!, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
-    {
-        
-        if (dividerIndex == 0)
-        {
-            return proposedMinimumPosition + 50;
-        }
-        return proposedMinimumPosition + 200;
-
-    }
-        
-      
-    func splitView(splitView: NSSplitView!, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
-    {
-        return proposedMaximumPosition - 100;
-    }
-    
-        
         
     /*******************************************************
     *
@@ -368,46 +359,19 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
 
     }
     
-    override func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!)
-    {
-        var scrollView = webView.mainFrame.frameView.documentView.enclosingScrollView;
-        
-//        scrollView.verticalScroller.controlSize = NSControlSize.SmallControlSize;
-//        scrollView!.horizontalScroller.controlSize = NSControlSize.SmallControlSize;
-
-    }
-    
-    override func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: NSDictionary!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
-    {
-        
-        
-        var actionNumber = actionInformation.objectForKey(WebActionNavigationTypeKey) as NSNumber;
-        
-        WebNavigationType.LinkClicked
-        
-        if ( actionNumber.integerValue == 0 )
-        {
-            listener.ignore();
-            NSWorkspace.sharedWorkspace().openURL(request.URL);
-        }
-        else
-        {
-            listener.use();
-        }
-
-    }
-    
     func doubleClickOnRssItem()
     {
         var item = channelDelegate.rssItems[tableView.clickedRow];
-        var url:NSURL = NSURL.URLWithString(item.link);
-        var sharedWorkspace:NSWorkspace = NSWorkspace.sharedWorkspace();
-//        var error:NSError?;
-//        var dictionary:NSDictionary = NSDictionary();
-        sharedWorkspace.openURL(url);
-//        , options: NSWorkspaceLaunchOptions.WithoutActivation, configuration: dictionary, error: &error);
+        openUrlInBackground(item.link);
     }
     
+    func openUrlInBackground(urlPath:String)
+    {
+        var url:NSURL = NSURL.URLWithString(urlPath);
+        var sharedWorkspace:NSWorkspace = NSWorkspace.sharedWorkspace();
+        var options:NSWorkspaceLaunchOptions = (NSWorkspaceLaunchOptions.WithoutActivation | NSWorkspaceLaunchOptions.Default);
+        sharedWorkspace.openURLs([url], withAppBundleIdentifier: nil, options: options, additionalEventParamDescriptor: nil, launchIdentifiers: nil);
+    }
     
 
 

@@ -7,16 +7,22 @@
 //
 
 import Foundation
+import Cocoa
 
 class FTRSSFeed
 {
     var title = "";
-    var link = "";
+    var link:String?;
     var description = "";
     var language = "";
     var copyright = "";
     var lastBuildDate = "";
     var generator = "";
     var docs = "";
+    var faviconImage:NSImage?;
 
+    init()
+    {
+        
+    }
 }
