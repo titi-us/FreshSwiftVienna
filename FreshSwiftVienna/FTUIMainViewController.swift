@@ -112,7 +112,7 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         outlineView.setDelegate(self);
         
         // set the first column's cells as `ImageAndTextCell`s
-        var iatc:FTImageAndTextCell = FTImageAndTextCell();
+        var iatc:FTUIImageAndTextCell = FTUIImageAndTextCell();
         iatc.editable = false;
 
         outlineContainer.documentView = outlineView;
@@ -254,7 +254,7 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
     
     func outlineView(outlineView: NSOutlineView!, heightOfRowByItem item: AnyObject!) -> CGFloat
     {
-        return 23;
+        return 25;
     }
     
     func outlineView(outlineView: NSOutlineView!, shouldSelectItem item: AnyObject!) -> Bool
@@ -289,6 +289,7 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
     {
         (cell as NSTextFieldCell).drawsBackground = true;
         (cell as NSTextFieldCell).textColor = NSColor.blackColor();
+        
     }
     
         

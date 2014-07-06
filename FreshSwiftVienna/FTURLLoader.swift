@@ -35,8 +35,6 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
         var error:NSError?;
         let data:NSData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
         parseData(data);
-
-        
     }
     
     func parseData(data:NSData)
@@ -50,27 +48,72 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
         // now parse the document
         var ok = xmlparser.parse();
         // TODO, parse link to get favicon
-        if let mylink:String = rssFeed.link
+        
+        if let myImage = loadFavicon(rssFeed.link, relativeUrl: nil)
         {
-            
-            if let url = NSURL(string: mylink) as NSURL?
+            rssFeed.faviconImage = FTURLLoader.roundCorners(myImage);
+        } else
+        {
+            var parser = FTHTTPParser();
+            parser.startWithUrl(NSURL(string: rssFeed.link));
+            if parser.metaFound["favicon"] != nil
             {
-                if let faviconUrl = NSURL.URLWithString("/favicon.ico", relativeToURL: url.absoluteURL) as NSURL?
+                if let myImage = loadFavicon(rssFeed.link, relativeUrl: parser.metaFound["favicon"]!)
                 {
-                    if let image:NSImage = NSImage(contentsOfURL: faviconUrl) as NSImage?
+                    rssFeed.faviconImage = FTURLLoader.roundCorners(myImage);
+                }
+            }
+        }
+        
+        
+        isLoading = ok;
+        println("done for \(urlPath)");
+//        NSNotificationCenter.defaultCenter().postNotificationName("loading updated", object: self);
+    }
+    
+    
+    func loadFavicon(baseFaviconUrl:String?, relativeUrl:String?) -> NSImage?
+    {
+        println("loading \(baseFaviconUrl), with relative \(relativeUrl)")
+        if let myUrl:String = baseFaviconUrl
+        {
+            if !myUrl.isEmpty
+            {
+                if let url = NSURL(string: myUrl) as NSURL?
+                {
+                    var fullFaviconUrl:NSURL?;
+                    if relativeUrl != nil
                     {
-                        if image.valid
+                        if relativeUrl!.hasPrefix("http")
                         {
-                            rssFeed.faviconImage = FTURLLoader.roundCorners(image);
+                            fullFaviconUrl = NSURL.URLWithString(relativeUrl!);
+                        } else
+                        {
+                            fullFaviconUrl = NSURL.URLWithString(relativeUrl!, relativeToURL: url.absoluteURL)
+                        }
+
+                    } else
+                    {
+                        fullFaviconUrl = NSURL.URLWithString("/favicon.ico", relativeToURL: url.absoluteURL)
+                    }
+                    
+                    if let faviconUrl = fullFaviconUrl
+                    {
+                        if let image:NSImage = NSImage(contentsOfURL: faviconUrl) as NSImage?
+                        {
+                            if image.valid
+                            {
+                                return image;
+                            }
                         }
                     }
                 }
             }
         }
-        isLoading = ok;
-        println("done for \(urlPath)");
-//        NSNotificationCenter.defaultCenter().postNotificationName("loading updated", object: self);
+        return nil;
+
     }
+    
     
     
     // async

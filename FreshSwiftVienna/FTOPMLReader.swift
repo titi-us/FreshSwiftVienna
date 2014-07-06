@@ -16,12 +16,15 @@ class FTOPMLReader: NSObject, NSXMLParserDelegate
     {
         loadedUrls = [];
         var parser:NSXMLParser? = NSXMLParser(contentsOfURL:NSURL.fileURLWithPath(url));
-        parser!.delegate = self;
-        parser!.shouldResolveExternalEntities = false;
-        
-        // now parse the document
-        parser!.parse();
-        parser = nil;
+        if let actualParser = parser
+        {
+            actualParser.delegate = self;
+            actualParser.shouldResolveExternalEntities = false;
+            
+            // now parse the document
+            actualParser.parse();
+            parser = nil;
+        }
         return loadedUrls;
     }
     

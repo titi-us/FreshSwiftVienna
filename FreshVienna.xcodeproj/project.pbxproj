@@ -43,6 +43,7 @@
 		BFDB4A8C191F308400C46EAF /* FTUIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A8B191F308400C46EAF /* FTUIMainViewController.m */; };
 		BFDB4A94191F49BC00C46EAF /* FTUIViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */; };
 		BFDB4A97191F49D800C46EAF /* FTUIChannelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A96191F49D800C46EAF /* FTUIChannelDelegate.m */; };
+		BFEB3D6E196640C50020E268 /* FTHTTPParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB3D6D196640C50020E268 /* FTHTTPParser.swift */; };
 		BFF5D5EE191C70CC00301531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5D5ED191C70CC00301531 /* Cocoa.framework */; };
 		BFF5D5F8191C70CC00301531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D5F6191C70CC00301531 /* InfoPlist.strings */; };
 		BFF5D5FA191C70CC00301531 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D5F9191C70CC00301531 /* main.m */; };
@@ -60,7 +61,7 @@
 		BFFFF61D19400F46005B372F /* FTUIArticleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF61C19400F46005B372F /* FTUIArticleCellView.swift */; };
 		BFFFF61F194012E7005B372F /* FTUIArticleCellViewNoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF61E194012E7005B372F /* FTUIArticleCellViewNoImageView.swift */; };
 		BFFFF62119401BC1005B372F /* FTUIOutlineViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF62019401BC1005B372F /* FTUIOutlineViewDataSource.swift */; };
-		BFFFF62319401D72005B372F /* FTImageAndTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF62219401D72005B372F /* FTImageAndTextCell.swift */; };
+		BFFFF62319401D72005B372F /* FTUIImageAndTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFF62219401D72005B372F /* FTUIImageAndTextCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIViewDelegate.m; sourceTree = "<group>"; };
 		BFDB4A95191F49D800C46EAF /* FTUIChannelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIChannelDelegate.h; sourceTree = "<group>"; };
 		BFDB4A96191F49D800C46EAF /* FTUIChannelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIChannelDelegate.m; sourceTree = "<group>"; };
+		BFEB3D6D196640C50020E268 /* FTHTTPParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHTTPParser.swift; sourceTree = "<group>"; };
 		BFF5D5EA191C70CC00301531 /* FreshVienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshVienna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF5D5ED191C70CC00301531 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BFF5D5F0191C70CC00301531 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -157,7 +159,7 @@
 		BFFFF61C19400F46005B372F /* FTUIArticleCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIArticleCellView.swift; sourceTree = "<group>"; };
 		BFFFF61E194012E7005B372F /* FTUIArticleCellViewNoImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIArticleCellViewNoImageView.swift; sourceTree = "<group>"; };
 		BFFFF62019401BC1005B372F /* FTUIOutlineViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIOutlineViewDataSource.swift; sourceTree = "<group>"; };
-		BFFFF62219401D72005B372F /* FTImageAndTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTImageAndTextCell.swift; sourceTree = "<group>"; };
+		BFFFF62219401D72005B372F /* FTUIImageAndTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIImageAndTextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				BF6C5863193D8248009E0F6D /* FTRSSItem.swift */,
 				BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */,
 				BF91E090193EB07D008FF3FB /* FTOPMLReader.swift */,
+				BFEB3D6D196640C50020E268 /* FTHTTPParser.swift */,
 				BF91E092193EB1C8008FF3FB /* FTOPMLItem.swift */,
 			);
 			name = Core;
@@ -238,7 +241,7 @@
 				BFFFF61C19400F46005B372F /* FTUIArticleCellView.swift */,
 				BFFFF61E194012E7005B372F /* FTUIArticleCellViewNoImageView.swift */,
 				BFFFF62019401BC1005B372F /* FTUIOutlineViewDataSource.swift */,
-				BFFFF62219401D72005B372F /* FTImageAndTextCell.swift */,
+				BFFFF62219401D72005B372F /* FTUIImageAndTextCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -605,10 +608,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFEB3D6E196640C50020E268 /* FTHTTPParser.swift in Sources */,
 				BF7143B719450832007DCE59 /* FTUIWebViewDelegate.swift in Sources */,
 				BF6C5866193D8450009E0F6D /* FTRSSFeed.swift in Sources */,
 				BF91E091193EB07D008FF3FB /* FTOPMLReader.swift in Sources */,
-				BFFFF62319401D72005B372F /* FTImageAndTextCell.swift in Sources */,
+				BFFFF62319401D72005B372F /* FTUIImageAndTextCell.swift in Sources */,
 				BF6C5862193D787B009E0F6D /* FTURLLoader.swift in Sources */,
 				BF6C5860193D7229009E0F6D /* FTUIMainViewController.swift in Sources */,
 				BF7143BB19450B47007DCE59 /* FTUISplitViewDelegate.swift in Sources */,
