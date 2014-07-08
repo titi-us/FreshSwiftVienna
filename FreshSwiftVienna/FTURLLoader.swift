@@ -65,6 +65,68 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
             }
         }
         
+        for i in 0...(unreadCount - 1)
+        {
+            if rssItems.count > 0 && rssItems[i].imageUrl == nil
+            {
+                let myUurl:NSURL? = NSURL(string: rssItems[i].link);
+                if let myRealUrl = myUurl
+                {
+                    var str:String? = NSString.stringWithContentsOfURL(myRealUrl) as? String;
+                    if str != nil
+                    {
+                        let htmlParser = NDHpple(HTMLData: str!);
+                        let xpath = "//meta[@property]"
+                        var titles = htmlParser.searchWithXPathQuery(xpath)
+                        
+                        if let actualTitles = titles
+                        {
+                            for title in actualTitles
+                            {
+                                
+                                if (title.attributes["property"] != nil)
+                                {
+                                    var object:AnyObject = title.attributes["property"]!;
+                                    var possibleValue:String? = object as? String;
+                                    
+                                    if (possibleValue != nil && possibleValue! == "og:image")
+                                    {
+                                        var objectContent:AnyObject = title.attributes["content"]!;
+                                        var content:String? = objectContent as? String;
+                                        if let actualContent = content
+                                        {
+                                            rssItems[i].imageUrl = NSURL(string: actualContent)
+                                        }
+                                    }
+
+                                }
+                                
+                                
+                            }
+                        }
+                    }
+
+                }
+
+                
+                
+                // load first item image via og:image
+                //                var imageParser = FTImageHTTPParser();
+                
+//                if !imageParser.startWithUrl(NSURL(string: rssItems[i].link))
+//                {
+//                    println("something went wrong for \(rssItems[i].link)")
+//                }
+//                if imageParser.metaFound["image"] != nil
+//                {
+//                    rssItems[i].imageUrl = NSURL(string: imageParser.metaFound["image"]!)
+//                }
+            }
+
+        }
+        
+        
+        
         
         isLoading = ok;
         println("done for \(urlPath)");
