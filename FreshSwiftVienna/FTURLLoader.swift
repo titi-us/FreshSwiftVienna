@@ -18,11 +18,14 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
     var rssFeed:FTRSSFeed;
     var rssItems:FTRSSItem[] = [];
     let urlPath:String;
+    var hasTimestamp:Bool;
     
     init(urlPath:String) {
         self.urlPath = urlPath;
         rssFeed = FTRSSFeed();
+        hasTimestamp = false;
         super.init();
+        
     }
     
     func start()
@@ -34,7 +37,13 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
         var response:NSURLResponse?;
         var error:NSError?;
         let data:NSData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
-        parseData(data);
+        if let actualError = error
+        {
+            println("can't download \(url), \(actualError)")
+        } else
+        {
+            parseData(data);
+        }
     }
     
     func parseData(data:NSData)
@@ -65,62 +74,39 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
             }
         }
         
-        for i in 0...(unreadCount - 1)
+        var maxCount = hasTimestamp ? unreadCount : rssItems.count;
+                
+        for i in 0...(maxCount - 1)
         {
-            if rssItems.count > 0 && rssItems[i].imageUrl == nil
+            if (rssItems[i].imageUrl == nil || !hasTimestamp)
             {
                 let myUurl:NSURL? = NSURL(string: rssItems[i].link);
                 if let myRealUrl = myUurl
                 {
-                    var str:String? = NSString.stringWithContentsOfURL(myRealUrl) as? String;
+                    var error:NSError?;
+                    var nsString:NSString? = NSString.stringWithContentsOfURL(myRealUrl, encoding:NSUTF8StringEncoding, error: &error);
+                    var str:String? = nsString as String?
                     if str != nil
                     {
-                        let htmlParser = NDHpple(HTMLData: str!);
-                        let xpath = "//meta[@property]"
-                        var titles = htmlParser.searchWithXPathQuery(xpath)
                         
-                        if let actualTitles = titles
+                        let htmlParser = FTReadability(htmlContent: str!);
+                        
+                        if !hasTimestamp
                         {
-                            for title in actualTitles
-                            {
-                                
-                                if (title.attributes["property"] != nil)
-                                {
-                                    var object:AnyObject = title.attributes["property"]!;
-                                    var possibleValue:String? = object as? String;
-                                    
-                                    if (possibleValue != nil && possibleValue! == "og:image")
-                                    {
-                                        var objectContent:AnyObject = title.attributes["content"]!;
-                                        var content:String? = objectContent as? String;
-                                        if let actualContent = content
-                                        {
-                                            rssItems[i].imageUrl = NSURL(string: actualContent)
-                                        }
-                                    }
-
-                                }
-                                
-                                
-                            }
+                            rssItems[i].description = htmlParser.getReadableContent()
                         }
+
+                        
+                        var possibleImagePath:String? = htmlParser.getImageUrlInHeader();
+                        if let actualContent = possibleImagePath
+                        {
+                            rssItems[i].imageUrl = NSURL(string: actualContent)
+                        }
+                        
                     }
 
                 }
 
-                
-                
-                // load first item image via og:image
-                //                var imageParser = FTImageHTTPParser();
-                
-//                if !imageParser.startWithUrl(NSURL(string: rssItems[i].link))
-//                {
-//                    println("something went wrong for \(rssItems[i].link)")
-//                }
-//                if imageParser.metaFound["image"] != nil
-//                {
-//                    rssItems[i].imageUrl = NSURL(string: imageParser.metaFound["image"]!)
-//                }
             }
 
         }
@@ -249,6 +235,7 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
                 item.guid = currentStringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             } else if (elementName == "pubDate")
             {
+                hasTimestamp = true;
                 item.pubDate = currentStringValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                 
                 var pubDate:NSDate = NSDate.dateWithNaturalLanguageString(item.pubDate) as NSDate

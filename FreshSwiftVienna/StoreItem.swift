@@ -1,0 +1,23 @@
+//
+//  StoreItem.swift
+//  FreshVienna
+//
+//  Created by Thibaut on 7/10/14.
+//  Copyright (c) 2014 Thibaut. All rights reserved.
+//
+
+import Foundation
+import CoreData
+
+class StoreItem : NSManagedObject
+{
+    @NSManaged
+    var title:NSString?;
+    @NSManaged
+    var url:String?;
+    @NSManaged
+    var parent:StoreItem?;
+    @NSManaged
+    var children:NSSet?;
+
+}

@@ -12,22 +12,21 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
     @IBOutlet var window: NSWindow
-
+    var persistentStack:PersistentStack?;
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
         println("Start");
         
+        let documentDirectory:NSURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil);
+        
+        let storeURL = documentDirectory.URLByAppendingPathComponent("db.sqlite");
+        let modelURL = NSBundle.mainBundle().URLForResource("Model", withExtension: "momd");
+        
+        persistentStack = PersistentStack(storeURL: storeURL, modelURL: modelURL)
+        
+        
         var mainViewController = FTUIMainViewController(nibName:nil, bundle:nil);
-        // TODO, do that if the size is default;
-//        var frame = window.frame;
-//        frame.size.width = 1400;
-        
-//        var currentHeight = frame.size.height;
-//        frame.size.height = 800;
-        
-//        frame.origin.y -= (800 - currentHeight);
-//        window.setFrame(frame, display: true);
         window.contentView = mainViewController.view;
         window.representedFilename = "MainWindow";
         

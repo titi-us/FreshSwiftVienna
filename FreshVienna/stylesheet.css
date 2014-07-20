@@ -72,6 +72,7 @@ img, table, td, blockquote, code, pre, textarea, input, iframe, object, embed, v
 
 /* keep images ratio and avoid box overflow due to border or padding */
 img {
+    display:block;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
     -webkit-box-shadow: 0px 2px 2px 0px #ccc;

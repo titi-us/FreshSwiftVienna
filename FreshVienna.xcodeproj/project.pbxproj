@@ -10,6 +10,8 @@
 		BF07ED76194411AA0053983E /* FTURLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF07ED75194411AA0053983E /* FTURLOperation.swift */; };
 		BF223936192457FC0034F22E /* FTUIArticleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF223935192457FC0034F22E /* FTUIArticleCellView.m */; };
 		BF369DF119284AF500498E2D /* FTUIArticleCellViewNoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */; };
+		BF5B7E0C196E352E00C55FFE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5D5F1191C70CC00301531 /* CoreData.framework */; };
+		BF5B7E0F196E378A00C55FFE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF5B7E0D196E378A00C55FFE /* Model.xcdatamodeld */; };
 		BF6C5845193D70A4009E0F6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5844193D70A4009E0F6D /* main.swift */; };
 		BF6C5847193D70A4009E0F6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5846193D70A4009E0F6D /* AppDelegate.swift */; };
 		BF6C5849193D70A4009E0F6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6C5848193D70A4009E0F6D /* Images.xcassets */; };
@@ -19,6 +21,9 @@
 		BF6C5862193D787B009E0F6D /* FTURLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5861193D787B009E0F6D /* FTURLLoader.swift */; };
 		BF6C5864193D8248009E0F6D /* FTRSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5863193D8248009E0F6D /* FTRSSItem.swift */; };
 		BF6C5866193D8450009E0F6D /* FTRSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */; };
+		BF706339196F79A50026A4AD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF706338196F79A50026A4AD /* Store.swift */; };
+		BF70633B196F79CC0026A4AD /* PersistentStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70633A196F79CC0026A4AD /* PersistentStack.swift */; };
+		BF70633D196F84360026A4AD /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70633C196F84360026A4AD /* StoreItem.swift */; };
 		BF7143B719450832007DCE59 /* FTUIWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7143B619450832007DCE59 /* FTUIWebViewDelegate.swift */; };
 		BF7143BB19450B47007DCE59 /* FTUISplitViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7143BA19450B47007DCE59 /* FTUISplitViewDelegate.swift */; };
 		BF7D14FE192304E900258673 /* FTUITreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7D14FD192304E900258673 /* FTUITreeItem.m */; };
@@ -47,6 +52,7 @@
 		BFDB4A8C191F308400C46EAF /* FTUIMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A8B191F308400C46EAF /* FTUIMainViewController.m */; };
 		BFDB4A94191F49BC00C46EAF /* FTUIViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */; };
 		BFDB4A97191F49D800C46EAF /* FTUIChannelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB4A96191F49D800C46EAF /* FTUIChannelDelegate.m */; };
+		BFE86D52196B93D2008EB7CE /* FTReadability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE86D51196B93D2008EB7CE /* FTReadability.swift */; };
 		BFEB3D6E196640C50020E268 /* FTHTTPParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB3D6D196640C50020E268 /* FTHTTPParser.swift */; };
 		BFF5D5EE191C70CC00301531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5D5ED191C70CC00301531 /* Cocoa.framework */; };
 		BFF5D5F8191C70CC00301531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF5D5F6191C70CC00301531 /* InfoPlist.strings */; };
@@ -91,6 +97,7 @@
 		BF223935192457FC0034F22E /* FTUIArticleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellView.m; sourceTree = "<group>"; };
 		BF369DEF19284AF500498E2D /* FTUIArticleCellViewNoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIArticleCellViewNoImageView.h; sourceTree = "<group>"; };
 		BF369DF019284AF500498E2D /* FTUIArticleCellViewNoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIArticleCellViewNoImageView.m; sourceTree = "<group>"; };
+		BF5B7E0E196E378A00C55FFE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		BF6C5840193D70A4009E0F6D /* FreshSwiftVienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshSwiftVienna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6C5843193D70A4009E0F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF6C5844193D70A4009E0F6D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -104,6 +111,9 @@
 		BF6C5861193D787B009E0F6D /* FTURLLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTURLLoader.swift; sourceTree = "<group>"; };
 		BF6C5863193D8248009E0F6D /* FTRSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTRSSItem.swift; sourceTree = "<group>"; };
 		BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTRSSFeed.swift; sourceTree = "<group>"; };
+		BF706338196F79A50026A4AD /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		BF70633A196F79CC0026A4AD /* PersistentStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentStack.swift; sourceTree = "<group>"; };
+		BF70633C196F84360026A4AD /* StoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		BF7143B619450832007DCE59 /* FTUIWebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUIWebViewDelegate.swift; sourceTree = "<group>"; };
 		BF7143BA19450B47007DCE59 /* FTUISplitViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUISplitViewDelegate.swift; sourceTree = "<group>"; };
 		BF7D14FC192304E800258673 /* FTUITreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUITreeItem.h; sourceTree = "<group>"; };
@@ -141,6 +151,7 @@
 		BFDB4A93191F49BC00C46EAF /* FTUIViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIViewDelegate.m; sourceTree = "<group>"; };
 		BFDB4A95191F49D800C46EAF /* FTUIChannelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTUIChannelDelegate.h; sourceTree = "<group>"; };
 		BFDB4A96191F49D800C46EAF /* FTUIChannelDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTUIChannelDelegate.m; sourceTree = "<group>"; };
+		BFE86D51196B93D2008EB7CE /* FTReadability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTReadability.swift; sourceTree = "<group>"; };
 		BFEB3D6D196640C50020E268 /* FTHTTPParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHTTPParser.swift; sourceTree = "<group>"; };
 		BFF5D5EA191C70CC00301531 /* FreshVienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshVienna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF5D5ED191C70CC00301531 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -177,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5B7E0C196E352E00C55FFE /* CoreData.framework in Frameworks */,
 				BF91E09A193EC1E8008FF3FB /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,10 +242,14 @@
 			isa = PBXGroup;
 			children = (
 				BF6C5861193D787B009E0F6D /* FTURLLoader.swift */,
+				BF706338196F79A50026A4AD /* Store.swift */,
+				BF70633C196F84360026A4AD /* StoreItem.swift */,
+				BF70633A196F79CC0026A4AD /* PersistentStack.swift */,
 				BF07ED75194411AA0053983E /* FTURLOperation.swift */,
 				BF6C5863193D8248009E0F6D /* FTRSSItem.swift */,
 				BF6C5865193D844F009E0F6D /* FTRSSFeed.swift */,
 				BF91E090193EB07D008FF3FB /* FTOPMLReader.swift */,
+				BFE86D51196B93D2008EB7CE /* FTReadability.swift */,
 				BFEB3D6D196640C50020E268 /* FTHTTPParser.swift */,
 				BFAC486D196A180D0098688B /* FTImageHTTPParser.swift */,
 				BF91E092193EB1C8008FF3FB /* FTOPMLItem.swift */,
@@ -246,6 +262,7 @@
 			children = (
 				BF6C585F193D7229009E0F6D /* FTUIMainViewController.swift */,
 				BF91E094193EB499008FF3FB /* FTUITreeItem.swift */,
+				BF5B7E0D196E378A00C55FFE /* Model.xcdatamodeld */,
 				BF7143BA19450B47007DCE59 /* FTUISplitViewDelegate.swift */,
 				BF7143B619450832007DCE59 /* FTUIWebViewDelegate.swift */,
 				BFFFF61A19400B2F005B372F /* FTUIChannelDelegate.swift */,
@@ -635,15 +652,20 @@
 				BF6C5847193D70A4009E0F6D /* AppDelegate.swift in Sources */,
 				BFEB3D6E196640C50020E268 /* FTHTTPParser.swift in Sources */,
 				BF7143B719450832007DCE59 /* FTUIWebViewDelegate.swift in Sources */,
+				BF70633D196F84360026A4AD /* StoreItem.swift in Sources */,
 				BF6C5866193D8450009E0F6D /* FTRSSFeed.swift in Sources */,
+				BFE86D52196B93D2008EB7CE /* FTReadability.swift in Sources */,
+				BF706339196F79A50026A4AD /* Store.swift in Sources */,
 				BF91E091193EB07D008FF3FB /* FTOPMLReader.swift in Sources */,
 				BFFFF62319401D72005B372F /* FTUIImageAndTextCell.swift in Sources */,
 				BF6C5862193D787B009E0F6D /* FTURLLoader.swift in Sources */,
 				BF6C5860193D7229009E0F6D /* FTUIMainViewController.swift in Sources */,
 				BF7143BB19450B47007DCE59 /* FTUISplitViewDelegate.swift in Sources */,
 				BF91E093193EB1C8008FF3FB /* FTOPMLItem.swift in Sources */,
+				BF5B7E0F196E378A00C55FFE /* Model.xcdatamodeld in Sources */,
 				BFFFF61F194012E7005B372F /* FTUIArticleCellViewNoImageView.swift in Sources */,
 				BF6C5864193D8248009E0F6D /* FTRSSItem.swift in Sources */,
+				BF70633B196F79CC0026A4AD /* PersistentStack.swift in Sources */,
 				BFAC4874196A23BD0098688B /* NDHpple.swift in Sources */,
 				BFFFF61B19400B2F005B372F /* FTUIChannelDelegate.swift in Sources */,
 				BFFFF62119401BC1005B372F /* FTUIOutlineViewDataSource.swift in Sources */,
@@ -1047,6 +1069,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF5B7E0D196E378A00C55FFE /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF5B7E0E196E378A00C55FFE /* Model.xcdatamodel */,
+			);
+			currentVersion = BF5B7E0E196E378A00C55FFE /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BFF5D5E2191C70CC00301531 /* Project object */;
 }

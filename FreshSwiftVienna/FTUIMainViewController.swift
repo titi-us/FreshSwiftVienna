@@ -89,7 +89,6 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
             cssTemplate = "";
         }
 
-
     }
     
     override func loadView()
@@ -164,13 +163,69 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         
         queue.maxConcurrentOperationCount = 15;
         
-        for url in urls {
-            var urlLoader:FTURLLoader = FTURLLoader(urlPath:url.xmlUrl);
-            loaders.append(urlLoader);
-            var asyncLoadOperation = FTURLOperation(loader: urlLoader);
-            queue.addOperation(asyncLoadOperation);
-            treeArray.append(FTUITreeItem(loader: urlLoader, item: url));
+        
+        
+        
+        let managedContext:NSManagedObjectContext = (NSApplication.sharedApplication().delegate as AppDelegate).persistentStack!.managedObjectContext;
+        
+        NSEntityDescription.insertNewObjectForEntityForName("TreeItem", inManagedObjectContext: managedContext)
+
+        let fetchRequest:NSFetchRequest = NSFetchRequest()
+        let entity:NSEntityDescription = NSEntityDescription.entityForName("TreeItem", inManagedObjectContext: managedContext);
+        fetchRequest.entity = entity;
+        
+        
+        // managedContext.reset();
+        
+        var error:NSError?;
+        var fetchedObjects:AnyObject[]! = managedContext.executeFetchRequest(fetchRequest, error: &error);
+        if (fetchedObjects.count == 0)
+        {
+            println("loading from file");
+            // Handle the error.
+            for url in urls {
+                var urlLoader:FTURLLoader = FTURLLoader(urlPath:url.xmlUrl);
+                loaders.append(urlLoader);
+                var asyncLoadOperation = FTURLOperation(loader: urlLoader);
+                queue.addOperation(asyncLoadOperation);
+                treeArray.append(FTUITreeItem(loader: urlLoader, item: url));
+                
+                var fetchedObject : AnyObject = NSEntityDescription.insertNewObjectForEntityForName("TreeItem", inManagedObjectContext: managedContext);
+                
+                var myFetchedObject:StoreItem = fetchedObject as StoreItem;
+                
+                myFetchedObject.url = url.xmlUrl;
+                myFetchedObject.title = url.title;
+            }
+
+            if !managedContext.save(&error)
+            {
+                // error handling
+            }
+
+        } else
+        {
+            println("loading from coredata")
+            
+            for object : AnyObject in fetchedObjects {
+                var fetchedObject:StoreItem = object as StoreItem;
+                if (fetchedObject.url != nil)
+                {
+                    var url:FTOPMLItem = FTOPMLItem(xmlUrl: fetchedObject.url!, title: fetchedObject.title);
+                    
+                    var urlLoader:FTURLLoader = FTURLLoader(urlPath:url.xmlUrl);
+                    loaders.append(urlLoader);
+                    var asyncLoadOperation = FTURLOperation(loader: urlLoader);
+                    queue.addOperation(asyncLoadOperation);
+                    treeArray.append(FTUITreeItem(loader: urlLoader, item: url));
+                }
+
+            }
         }
+        
+        
+        
+        
         
         outlineDataSource.data = treeArray;
         outlineView.setDataSource(outlineDataSource);
