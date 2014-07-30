@@ -16,7 +16,7 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
     var currentStringValue:String = "";
     var currentRssItem:FTRSSItem?;
     var rssFeed:FTRSSFeed;
-    var rssItems:FTRSSItem[] = [];
+    var rssItems:[FTRSSItem] = [];
     let urlPath:String;
     var hasTimestamp:Bool;
     
@@ -65,7 +65,8 @@ class FTURLLoader : NSObject, NSURLConnectionDataDelegate, NSXMLParserDelegate
         {
             var parser = FTHTTPParser();
             parser.startWithUrl(NSURL(string: rssFeed.link));
-            if parser.metaFound["favicon"] != nil
+            
+            if parser.metaFound["favicon"] && parser.metaFound["favicon"]!
             {
                 if let myImage = loadFavicon(rssFeed.link, relativeUrl: parser.metaFound["favicon"]!)
                 {

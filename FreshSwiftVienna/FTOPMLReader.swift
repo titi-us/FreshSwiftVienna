@@ -10,9 +10,9 @@ import Foundation
 
 class FTOPMLReader: NSObject, NSXMLParserDelegate
 {
-    var loadedUrls:FTOPMLItem[] = [];
+    var loadedUrls:[FTOPMLItem] = [];
 
-    func loadUrl(url:String) -> FTOPMLItem[]
+    func loadUrl(url:String) -> [FTOPMLItem]
     {
         loadedUrls = [];
         var parser:NSXMLParser? = NSXMLParser(contentsOfURL:NSURL.fileURLWithPath(url));

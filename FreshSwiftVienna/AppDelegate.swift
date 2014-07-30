@@ -11,7 +11,7 @@ import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
-    @IBOutlet var window: NSWindow
+    @IBOutlet var window: NSWindow?
     var persistentStack:PersistentStack?;
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
@@ -27,16 +27,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         var mainViewController = FTUIMainViewController(nibName:nil, bundle:nil);
-        window.contentView = mainViewController.view;
-        window.representedFilename = "MainWindow";
+        window!.contentView = mainViewController.view;
+        window!.representedFilename = "MainWindow";
         
       
-        if let control : NSWindowController = window.windowController() as? NSWindowController
+        if let control : NSWindowController = window!.windowController() as? NSWindowController
         {
             control.shouldCascadeWindows = false;
         }
                 
-        window.setFrameAutosaveName(window.representedFilename);
+        window!.setFrameAutosaveName(window!.representedFilename);
         
     }
 

@@ -23,10 +23,10 @@ class FTUIWebViewDelegate:NSViewController
         
     }
     
-    override func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: NSDictionary!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
+    override func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
     {
         
-        var actionNumber = actionInformation.objectForKey(WebActionNavigationTypeKey) as NSNumber;
+        var actionNumber = actionInformation[WebActionNavigationTypeKey] as NSNumber;
         if ( actionNumber.integerValue == 0 )
         {
             listener.ignore();
@@ -36,6 +36,10 @@ class FTUIWebViewDelegate:NSViewController
             listener.use();
         }
         
-    }
 
+    }
+    
+    
+    
+    
 }

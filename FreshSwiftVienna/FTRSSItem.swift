@@ -19,20 +19,23 @@ class FTRSSItem
         {
             var error:NSError?;
             var detector:NSDataDetector = NSDataDetector(types: NSTextCheckingType.Link.toRaw(), error: &error);
-            var range = NSMakeRange(0 as Int, newDescription.utf16count)
-            var matches:NSTextCheckingResult[] = detector.matchesInString(newDescription, options: NSMatchingOptions.ReportCompletion, range: range) as NSTextCheckingResult[];
+            var range = NSMakeRange(0 as Int, newDescription.utf16Count)
+            var matches:[NSTextCheckingResult] = detector.matchesInString(newDescription, options: NSMatchingOptions.ReportCompletion, range: range) as [NSTextCheckingResult];
             
             for match in matches {
-                
-                
-                if (match.resultType.value == NSTextCheckingType.Link.value) {
+            
+            
+                if (match.resultType.toRaw() == NSTextCheckingType.Link.toRaw()) {
                     var url:NSURL = match.URL;
                     
                     if let myPath = url.path
                     {
-                        var ranges:Range<String.Index> = myPath.rangeOfString("twitter", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil, locale: nil);
+                        
+                        
+                        
+                        var ranges:Range<String.Index>? = myPath.rangeOfString("twitter", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil, locale: nil);
 
-                        if (!ranges.isEmpty)
+                        if (ranges && !ranges!.isEmpty)
                         {
                             break;
                         }

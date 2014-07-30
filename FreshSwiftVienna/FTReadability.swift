@@ -24,11 +24,14 @@ class FTReadability
 
         if let actualTitles = titles
         {
-            for title in actualTitles
+            for title:NDHppleElement in actualTitles
             {
-                if (title.attributes["property"] != nil)
+                
+                
+                var myobject:AnyObject? = title.attributes["property"];
+                if (myobject)
                 {
-                    var object:AnyObject = title.attributes["property"]!;
+                    var object:AnyObject = myobject!;
                     var possibleValue:String? = object as? String;
                     
                     if (possibleValue != nil && possibleValue! == "og:image")
@@ -90,14 +93,14 @@ class FTReadability
                 {
                     max = contentCount[i];
                     maxIndex = i;
-                    maxLength = contentIndex[i].raw!.utf16count;
+                    maxLength = contentIndex[i].raw!.utf16Count;
                 } else if max == contentCount[i]
                 {
-                    if contentIndex[i].raw!.utf16count > maxLength
+                    if contentIndex[i].raw!.utf16Count > maxLength
                     {
                         max = contentCount[i];
                         maxIndex = i;
-                        maxLength = contentIndex[i].raw!.utf16count;
+                        maxLength = contentIndex[i].raw!.utf16Count;
                     }
                 }
             }

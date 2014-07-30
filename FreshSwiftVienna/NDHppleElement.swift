@@ -46,8 +46,14 @@ class NDHppleElement {
     }
     
     var hasChildren: Bool {
-    
-        return self[NDHppleNodeKey.Children.toRaw()] != nil
+        let anyObject:AnyObject? = self[NDHppleNodeKey.Children.toRaw()]
+        if anyObject
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
     
     var isTextNode: Bool {

@@ -11,7 +11,7 @@ import Cocoa
 
 class FTUIChannelDelegate : NSObject, NSTableViewDataSource, NSTableViewDelegate
 {
-    var rssItems:FTRSSItem[] = [];
+    var rssItems:[FTRSSItem] = [];
     var feedItem:FTRSSFeed? = nil;
     
     func numberOfRowsInTableView(tableView: NSTableView!) -> Int

@@ -9,30 +9,38 @@
 import Foundation
 
 
+func convXmlCharToString(str: UnsafePointer<xmlChar>) -> String? {
+    if str {
+        return String.fromCString(UnsafePointer<CChar>(str))
+    }
+    return ""
+}
+
+
 func createNode(currentNode: xmlNodePtr, inout parentDictionary: Dictionary<String, AnyObject>, parentContent: Bool) -> Dictionary<String, AnyObject>? {
     
     var resultForNode = Dictionary<String, AnyObject>(minimumCapacity: 8)
     
     if currentNode.memory.name.getLogicValue() {
-        let name = String.fromCString(CString(currentNode.memory.name));
-        resultForNode.updateValue(name, forKey: NDHppleNodeKey.Name.toRaw())
+        
+        let name:String? = convXmlCharToString(UnsafePointer<UInt8>(currentNode.memory.name));
+        resultForNode.updateValue(name!, forKey: NDHppleNodeKey.Name.toRaw())
     }
     
     if currentNode.memory.content.getLogicValue() {
-        let cstring = CString(currentNode.memory.content)
-        let content = String.fromCString(cstring)
+        let content = convXmlCharToString(UnsafePointer<UInt8>(currentNode.memory.name))
         
         if resultForNode[NDHppleNodeKey.Name.toRaw()] as AnyObject? as? String == "text" {
             
             if parentContent {
-                parentDictionary.updateValue(content, forKey: NDHppleNodeKey.Content.toRaw())
+                parentDictionary.updateValue(content!, forKey: NDHppleNodeKey.Content.toRaw())
                 return nil
             }
             
-            resultForNode.updateValue(content, forKey: NDHppleNodeKey.Content.toRaw())
+            resultForNode.updateValue(content!, forKey: NDHppleNodeKey.Content.toRaw())
             return resultForNode
         } else {
-            resultForNode.updateValue(content, forKey: NDHppleNodeKey.Content.toRaw())
+            resultForNode.updateValue(content!, forKey: NDHppleNodeKey.Content.toRaw())
         }
         
     }
@@ -49,7 +57,9 @@ func createNode(currentNode: xmlNodePtr, inout parentDictionary: Dictionary<Stri
             
             if attributeName.getLogicValue() {
 
-                attributeDictionary.updateValue(String.fromCString(CString(attributeName)), forKey: NDHppleNodeKey.AttributeName.toRaw())
+                let attributNameString:String? = convXmlCharToString(UnsafePointer<UInt8>(attributeName))
+                
+                attributeDictionary.updateValue(attributNameString!, forKey: NDHppleNodeKey.AttributeName.toRaw())
             }
             
             if attribute.memory.children.getLogicValue() {
@@ -102,7 +112,10 @@ func createNode(currentNode: xmlNodePtr, inout parentDictionary: Dictionary<Stri
 
     let buffer = xmlBufferCreate()
     xmlNodeDump(buffer, currentNode.memory.doc, currentNode, 0, 0)
-    resultForNode.updateValue(String.fromCString(CString(buffer.memory.content)), forKey: "raw")
+    
+    let bufferMemoryContent:String? = convXmlCharToString(UnsafePointer<UInt8>(buffer.memory.content))
+
+    resultForNode.updateValue(bufferMemoryContent!, forKey: "raw")
     xmlBufferFree(buffer)
     
     return resultForNode
@@ -115,7 +128,7 @@ func PerformXPathQuery(data: NSString, query: String, isXML: Bool) -> Array<Dict
     
     let bytes = data.cStringUsingEncoding(NSUTF8StringEncoding)
     let length = CInt(data.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
-    let url = "" as CString
+    let url = ""
     let encoding = CFStringGetCStringPtr(nil, 0)
     let options: CInt = isXML ? 1 : ((1 << 5) | (1 << 6))
     
@@ -127,10 +140,13 @@ func PerformXPathQuery(data: NSString, query: String, isXML: Bool) -> Array<Dict
         let xPathCtx = xmlXPathNewContext(doc)
         if xPathCtx {
             
-            var queryBytes = query.cStringUsingEncoding(NSUTF8StringEncoding)!
-            let ptr: CMutablePointer<CChar> = &queryBytes
+            var queryBytes:[CChar] = query.cStringUsingEncoding(NSUTF8StringEncoding)!
             
-            let xPathObj = xmlXPathEvalExpression(UnsafePointer<CUnsignedChar>(ptr.value), xPathCtx)
+            
+            
+            
+            
+            let xPathObj = xmlXPathEvalExpression(UnsafePointer<CUnsignedChar>(queryBytes), xPathCtx)
             if xPathObj.getLogicValue() {
                 
                 let nodes = xPathObj.memory.nodesetval

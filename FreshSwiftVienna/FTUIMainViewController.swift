@@ -19,10 +19,10 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
     var splitViewDelegate:FTUISplitViewDelegate;
     
     // data
-    var urls:FTOPMLItem[];
-    var loaders:FTURLLoader[];
+    var urls:[FTOPMLItem];
+    var loaders:[FTURLLoader];
     var outlineDataSource:FTUIOutlineViewDataSource;
-    var treeArray:FTUITreeItem[];
+    var treeArray:[FTUITreeItem];
     let queue:NSOperationQueue;
     
     //views
@@ -178,8 +178,8 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         // managedContext.reset();
         
         var error:NSError?;
-        var fetchedObjects:AnyObject[]! = managedContext.executeFetchRequest(fetchRequest, error: &error);
-        if (fetchedObjects.count == 0)
+        var fetchedObjects:[AnyObject]! = managedContext.executeFetchRequest(fetchRequest, error: &error);
+        if (fetchedObjects.count < 2)
         {
             println("loading from file");
             // Handle the error.
@@ -244,8 +244,10 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
         self.webView.frameLoadDelegate = self;
         self.outlineView.reloadData();
 
-        var context:KVOContext = KVOContext();
-        queue.addObserver(self, forKeyPath: "operationCount", options: NSKeyValueObservingOptions.New, kvoContext: context);
+        
+        
+//        var context:KVOContext = KVOContext();
+//        queue.addObserver(self, forKeyPath: "operationCount", options: NSKeyValueObservingOptions.New, kvoContext: context);
 
     }
     
@@ -277,25 +279,25 @@ class FTUIMainViewController : NSViewController, NSTableViewDataSource, NSTableV
     }
     
     
-    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: NSDictionary!, context: CMutableVoidPointer)
-    {
-        let queueObject = object as NSOperationQueue;
-        
-        if queueObject == self.queue && keyPath == "operationCount"
-        {
-            if self.queue.operationCount == 0
-            {
-                println("queue has completed");
-                self.outlineView.reloadData();
-            } else
-            {
-                println("queue not done");
-            }
-        } else
-        {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context);
-        }
-    }
+//    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: NSDictionary!, context: CMutableVoidPointer)
+//    {
+//        let queueObject = object as NSOperationQueue;
+//        
+//        if queueObject == self.queue && keyPath == "operationCount"
+//        {
+//            if self.queue.operationCount == 0
+//            {
+//                println("queue has completed");
+//                self.outlineView.reloadData();
+//            } else
+//            {
+//                println("queue not done");
+//            }
+//        } else
+//        {
+//            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context);
+//        }
+//    }
     
     
 
